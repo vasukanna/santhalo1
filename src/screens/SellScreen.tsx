@@ -444,14 +444,15 @@ export const SellScreen: React.FC = () => {
                     key={cat.id}
                     type="button"
                     onClick={() => handleCategorySelect(cat.id)}
+                    style={{ backgroundColor: isSelected ? undefined : (cat.bgColor || '#F3F4F6') }}
                     className={`flex flex-col items-center justify-center p-2 rounded-2xl border transition-all cursor-pointer aspect-square text-center ${
                       isSelected
-                        ? 'border-2 border-[#0f5132] bg-emerald-50/90 shadow-xs ring-2 ring-emerald-600/10'
-                        : 'border-stone-200/90 bg-white hover:border-emerald-300 hover:bg-stone-50'
+                        ? 'border-2 border-[#0B4626] bg-emerald-50/90 shadow-xs ring-2 ring-emerald-600/20'
+                        : 'border-black/5 hover:border-black/15 hover:shadow-xs'
                     }`}
                   >
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-1">
-                      <CategoryIcon name={cat.id} className="w-7 h-7 object-contain" />
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-1">
+                      <CategoryIcon name={cat.id} className="w-9 h-9 object-contain" />
                     </div>
                     <span className="text-[10px] sm:text-[11px] font-bold text-stone-800 leading-tight line-clamp-2">
                       {lang === 'te' ? cat.nameTe : cat.nameEn}

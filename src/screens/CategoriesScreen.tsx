@@ -43,8 +43,11 @@ export const CategoriesScreen: React.FC = () => {
                   className="w-full p-4 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0">
-                      <CategoryIcon categoryId={cat.id} className="w-6 h-6" />
+                    <div
+                      style={{ backgroundColor: cat.bgColor || '#ECFDF5' }}
+                      className="w-12 h-12 rounded-2xl border border-black/5 flex items-center justify-center shrink-0 p-1 shadow-2xs"
+                    >
+                      <CategoryIcon categoryId={cat.id} className="w-9 h-9 object-contain" />
                     </div>
                     <div>
                       <h3 className="font-bold text-stone-900 text-sm sm:text-base">

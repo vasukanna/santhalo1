@@ -16,6 +16,8 @@ export interface Category {
   te?: string;
   icon?: string;
   imageUrl?: string;
+  bgColor?: string;
+  borderColor?: string;
   subcategories: SubCategory[];
 }
 

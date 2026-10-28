@@ -1,15 +1,33 @@
 import React from 'react';
 import { Sprout, Apple, Fish, Beef, Wrench, Package } from 'lucide-react';
-import { normalizeCategoryId } from '../data/categories';
+import { normalizeCategoryId, DEFAULT_CATEGORIES } from '../data/categories';
 
 export interface CategoryIconProps {
   name?: string;
   categoryId?: string;
   className?: string;
+  useLucideFallback?: boolean;
 }
 
-export const CategoryIcon: React.FC<CategoryIconProps> = ({ name, categoryId = '', className = 'w-6 h-6' }) => {
+export const CategoryIcon: React.FC<CategoryIconProps> = ({
+  name,
+  categoryId = '',
+  className = 'w-6 h-6',
+  useLucideFallback = false
+}) => {
   const norm = normalizeCategoryId(name || categoryId);
+  const cat = DEFAULT_CATEGORIES.find((c) => c.id === norm);
+
+  if (!useLucideFallback && cat?.imageUrl) {
+    return (
+      <img
+        src={cat.imageUrl}
+        alt={cat.name}
+        className={`${className} object-contain`}
+        loading="lazy"
+      />
+    );
+  }
 
   switch (norm) {
     case 'paddy_rice':

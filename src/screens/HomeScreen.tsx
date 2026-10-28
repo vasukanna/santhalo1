@@ -228,28 +228,32 @@ export const HomeScreen: React.FC = () => {
           </button>
         </div>
 
-        {/* 5-Column Category Grid */}
-        <div className="grid grid-cols-5 gap-1.5 sm:gap-3">
+        {/* 5-Column Category Grid matching reference design */}
+        <div className="grid grid-cols-5 gap-1.5 sm:gap-3 md:gap-4">
           {DEFAULT_CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
               <button
                 key={cat.id}
+                type="button"
                 onClick={() => setSelectedCategory(isSelected ? '' : cat.id)}
-                className={`group flex flex-col items-center p-2 sm:p-3 rounded-xl border transition-all text-center cursor-pointer ${
+                style={{ backgroundColor: cat.bgColor || '#F3F4F6' }}
+                className={`group flex flex-col items-center justify-between p-2 sm:p-3 md:p-4 rounded-2xl sm:rounded-3xl transition-all duration-200 text-center cursor-pointer shadow-2xs ${
                   isSelected
-                    ? 'bg-emerald-50 border-emerald-500 shadow-xs ring-2 ring-emerald-500/20'
-                    : 'bg-white border-stone-200/80 hover:border-emerald-300 hover:shadow-xs'
+                    ? 'ring-2 ring-[#0B4626] border-2 border-[#0B4626] shadow-sm scale-[1.02]'
+                    : 'border border-black/5 hover:border-black/15 hover:shadow-xs hover:scale-[1.02] active:scale-95'
                 }`}
+                aria-label={lang === 'te' ? cat.nameTe : cat.name}
               >
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-1.5 transition-transform group-hover:scale-105 ${
-                  isSelected ? 'bg-emerald-600 text-white' : 'bg-stone-100 text-stone-700'
-                }`}>
-                  <CategoryIcon categoryId={cat.id} className="w-5 h-5 sm:w-6 sm:h-6" />
+                <div className="w-full h-11 sm:h-14 md:h-18 lg:h-20 flex items-center justify-center">
+                  <img
+                    src={cat.imageUrl}
+                    alt={cat.name}
+                    className="max-h-full max-w-full object-contain transition-transform duration-200 group-hover:scale-105 select-none pointer-events-none"
+                    loading="lazy"
+                  />
                 </div>
-                <span className={`text-[11px] sm:text-xs font-semibold leading-tight line-clamp-2 ${
-                  isSelected ? 'text-emerald-900' : 'text-stone-800'
-                }`}>
+                <span className="text-[11px] sm:text-xs md:text-sm font-bold text-[#0B4626] tracking-tight leading-tight line-clamp-1 mt-1 sm:mt-1.5 text-center">
                   {lang === 'te' ? cat.nameTe : cat.name}
                 </span>
               </button>
