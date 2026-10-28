@@ -1,0 +1,4225 @@
+[
+  {
+    "name": "Nellore (SPSR Nellore)",
+    "te": "నెల్లూరు (శ్రీ పొట్టి శ్రీరాములు)",
+    "code": "NLR",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Sangam",
+        "te": "సంగం",
+        "villages": [
+          {
+            "name": "Chennavarappadu",
+            "te": "చెన్నవరప్పాడు"
+          },
+          {
+            "name": "Sangam Town",
+            "te": "సంగం టౌన్"
+          },
+          {
+            "name": "Kolagatla",
+            "te": "కొలగట్ల"
+          },
+          {
+            "name": "Annareddypalem",
+            "te": "అన్నారెడ్డిపాలెం"
+          },
+          {
+            "name": "Vangallu",
+            "te": "వంగల్లు"
+          },
+          {
+            "name": "Tharunavaya",
+            "te": "తరుణవాయ"
+          },
+          {
+            "name": "Peramana",
+            "te": "పేరమన"
+          },
+          {
+            "name": "Gundemadakala",
+            "te": "గుండెమడకల"
+          },
+          {
+            "name": "Kothapeta",
+            "te": "కొత్తపేట"
+          }
+        ]
+      },
+      {
+        "name": "Kovur",
+        "te": "కోవూరు",
+        "villages": [
+          {
+            "name": "Padugupadu",
+            "te": "పడుగుపాడు"
+          },
+          {
+            "name": "Kovur Town",
+            "te": "కోవూరు టౌన్"
+          },
+          {
+            "name": "Gangavaram",
+            "te": "గంగవరం"
+          },
+          {
+            "name": "Inamadugu",
+            "te": "ఇనమడుగు"
+          },
+          {
+            "name": "Modegunta",
+            "te": "మోడేగుంట"
+          },
+          {
+            "name": "Potireddipalem",
+            "te": "పోతిరెడ్డిపాలెం"
+          },
+          {
+            "name": "Veguru",
+            "te": "వేగూరు"
+          }
+        ]
+      },
+      {
+        "name": "Nellore Urban",
+        "te": "నెల్లూరు అర్బన్",
+        "villages": [
+          {
+            "name": "Vedayapalem",
+            "te": "వేదాయపాళెం"
+          },
+          {
+            "name": "Dargamitta",
+            "te": "దర్గామిట్ట"
+          },
+          {
+            "name": "Nawabpet",
+            "te": "నవాబుపేట"
+          },
+          {
+            "name": "Pogathota",
+            "te": "పొగతోట"
+          },
+          {
+            "name": "Kallurpalli",
+            "te": "కల్లూరుపల్లి"
+          },
+          {
+            "name": "Buja Buja Nellore",
+            "te": "బుజ బుజ నెల్లూరు"
+          },
+          {
+            "name": "Santhapet",
+            "te": "సంతపేట"
+          },
+          {
+            "name": "Magunta Layout",
+            "te": "మగుంట లేఅవుట్"
+          },
+          {
+            "name": "Stonehousepet",
+            "te": "స్టోన్‌హౌస్‌పేట"
+          }
+        ]
+      },
+      {
+        "name": "Nellore Rural",
+        "te": "నెల్లూరు రూరల్",
+        "villages": [
+          {
+            "name": "South Mopur",
+            "te": "సౌత్ మోపూరు"
+          },
+          {
+            "name": "Chinthareddypalem",
+            "te": "చింతారెడ్డిపాలెం"
+          },
+          {
+            "name": "Amancherla",
+            "te": "అమంచర్ల"
+          },
+          {
+            "name": "Devarapalem",
+            "te": "దేవరపాలెం"
+          },
+          {
+            "name": "Golagamudi",
+            "te": "గొలగమూడి"
+          },
+          {
+            "name": "Kakutur",
+            "te": "కాకుటూరు"
+          },
+          {
+            "name": "Kothur",
+            "te": "కొత్తూరు"
+          },
+          {
+            "name": "Ambapuram",
+            "te": "అంబాపురం"
+          }
+        ]
+      },
+      {
+        "name": "Buchireddypalem",
+        "te": "బుచ్చిరెడ్డిపాలెం",
+        "villages": [
+          {
+            "name": "Buchireddypalem Town",
+            "te": "బుచ్చిరెడ్డిపాలెం"
+          },
+          {
+            "name": "Jonnavada",
+            "te": "జొన్నవాడ"
+          },
+          {
+            "name": "Damaramadugu",
+            "te": "దామరమడుగు"
+          },
+          {
+            "name": "Isakapalli",
+            "te": "ఇసకపల్లి"
+          },
+          {
+            "name": "Minagallu",
+            "te": "మినగల్లు"
+          },
+          {
+            "name": "Nagireddipalem",
+            "te": "నాగిరెడ్డిపాలెం"
+          },
+          {
+            "name": "Penubarthi",
+            "te": "పెనుబర్తి"
+          },
+          {
+            "name": "Vavveru",
+            "te": "వవ్వేరు"
+          }
+        ]
+      },
+      {
+        "name": "Kavali",
+        "te": "కావలి",
+        "villages": [
+          {
+            "name": "Kavali Rural",
+            "te": "కావలి రూరల్"
+          },
+          {
+            "name": "Rami Reddy Peta",
+            "te": "రామిరెడ్డిపేట"
+          },
+          {
+            "name": "Maddurupadu",
+            "te": "మద్దూరుపాడు"
+          },
+          {
+            "name": "Musunuru",
+            "te": "ముసునూరు"
+          },
+          {
+            "name": "Thummalapenta",
+            "te": "తుమ్మలపెంట"
+          },
+          {
+            "name": "Kothapalli",
+            "te": "కొత్తపల్లి"
+          },
+          {
+            "name": "Chennuru",
+            "te": "చెన్నూరు"
+          },
+          {
+            "name": "Rudrakota",
+            "te": "రుద్రకోట"
+          }
+        ]
+      },
+      {
+        "name": "Gudur",
+        "te": "గూడూరు",
+        "villages": [
+          {
+            "name": "Gudur Rural",
+            "te": "గూడూరు రూరల్"
+          },
+          {
+            "name": "Chennuru",
+            "te": "చెన్నూరు"
+          },
+          {
+            "name": "Kandali",
+            "te": "కండలి"
+          },
+          {
+            "name": "Mangalampeta",
+            "te": "మంగళంపేట"
+          },
+          {
+            "name": "Mittathmakoor",
+            "te": "మిట్టాత్మకూరు"
+          },
+          {
+            "name": "Palicherla",
+            "te": "పాలిచెర్ల"
+          },
+          {
+            "name": "Vedicherla",
+            "te": "వేదిచెర్ల"
+          }
+        ]
+      },
+      {
+        "name": "Atmakur",
+        "te": "ఆత్మకూరు",
+        "villages": [
+          {
+            "name": "Atmakur Town",
+            "te": "ఆత్మకూరు టౌన్"
+          },
+          {
+            "name": "Brahmanakraka",
+            "te": "బ్రాహ్మణక్రాక"
+          },
+          {
+            "name": "Chiruvella",
+            "te": "చిరువెళ్ల"
+          },
+          {
+            "name": "Karatam Palli",
+            "te": "కారటం పల్లి"
+          },
+          {
+            "name": "Kulluru",
+            "te": "కుళ్లూరు"
+          },
+          {
+            "name": "Mahimaluru",
+            "te": "మహిమలూరు"
+          },
+          {
+            "name": "Nandipadu",
+            "te": "నందిపాడు"
+          },
+          {
+            "name": "Vellampalli",
+            "te": "వెల్లంపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Indukurpet",
+        "te": "ఇందుకూరుపేట",
+        "villages": [
+          {
+            "name": "Indukurpet",
+            "te": "ఇందుకూరుపేట"
+          },
+          {
+            "name": "Gangapatnam",
+            "te": "గంగపట్నం"
+          },
+          {
+            "name": "Kothur",
+            "te": "కొత్తూరు"
+          },
+          {
+            "name": "Mypadu",
+            "te": "మైపాడు"
+          },
+          {
+            "name": "Nidiguntapalem",
+            "te": "నిడిగుంటపాలెం"
+          },
+          {
+            "name": "Pallipadu",
+            "te": "పల్లిపాడు"
+          },
+          {
+            "name": "Pudur",
+            "te": "పుదూరు"
+          }
+        ]
+      },
+      {
+        "name": "Allur",
+        "te": "అల్లూరు",
+        "villages": [
+          {
+            "name": "Allur Rural",
+            "te": "అల్లూరు రూరల్"
+          },
+          {
+            "name": "Gogulapalle",
+            "te": "గోగులపల్లె"
+          },
+          {
+            "name": "Indupuru",
+            "te": "ఇందుపూరు"
+          },
+          {
+            "name": "Isakapalle",
+            "te": "ఇసకపల్లె"
+          },
+          {
+            "name": "Kalapathapu",
+            "te": "కాలపాతపు"
+          },
+          {
+            "name": "North Mopur",
+            "te": "నార్త్ మోపూరు"
+          }
+        ]
+      },
+      {
+        "name": "Kodavalur",
+        "te": "కొడవలూరు",
+        "villages": [
+          {
+            "name": "Kodavalur",
+            "te": "కొడవలూరు"
+          },
+          {
+            "name": "Bodduvaripalem",
+            "te": "బొడ్డువారిపాలెం"
+          },
+          {
+            "name": "Gandavaram",
+            "te": "గండవరం"
+          },
+          {
+            "name": "Naidupeta",
+            "te": "నాయుడుపేట"
+          },
+          {
+            "name": "Venkannapalem",
+            "te": "వెంకన్నపాలెం"
+          },
+          {
+            "name": "Yellayapalem",
+            "te": "యెల్లాయపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Vidavalur",
+        "te": "విడవలూరు",
+        "villages": [
+          {
+            "name": "Vidavalur",
+            "te": "విడవలూరు"
+          },
+          {
+            "name": "Alaganipadu",
+            "te": "అలగానిపాడు"
+          },
+          {
+            "name": "Mudivarthi",
+            "te": "ముడివర్తి"
+          },
+          {
+            "name": "Ramatheertham",
+            "te": "రామతీర్థం"
+          },
+          {
+            "name": "Utukuru",
+            "te": "ఉటుకూరు"
+          },
+          {
+            "name": "Varagali",
+            "te": "వారగలి"
+          }
+        ]
+      },
+      {
+        "name": "Dagadarthi",
+        "te": "దగదర్తి",
+        "villages": [
+          {
+            "name": "Dagadarthi",
+            "te": "దగదర్తి"
+          },
+          {
+            "name": "Chennuru",
+            "te": "చెన్నూరు"
+          },
+          {
+            "name": "Kavalagunta",
+            "te": "కావలిగుంట"
+          },
+          {
+            "name": "Marripadu",
+            "te": "మర్రిపాడు"
+          },
+          {
+            "name": "Tadiparthi",
+            "te": "తాడిపర్తి"
+          },
+          {
+            "name": "Velupodu",
+            "te": "వెలుపోడు"
+          }
+        ]
+      },
+      {
+        "name": "Bogole (Bitragunta)",
+        "te": "బోగోలు (బిట్రగుంట)",
+        "villages": [
+          {
+            "name": "Bogole",
+            "te": "బోగోలు"
+          },
+          {
+            "name": "Bitragunta",
+            "te": "బిట్రగుంట"
+          },
+          {
+            "name": "Allimadugu",
+            "te": "అల్లిమడుగు"
+          },
+          {
+            "name": "Jakka Ammapalem",
+            "te": "జక్క అమ్మాపాలెం"
+          },
+          {
+            "name": "Samanthapudi",
+            "te": "సమంతపూడి"
+          }
+        ]
+      },
+      {
+        "name": "Jaladanki",
+        "te": "జలదంకి",
+        "villages": [
+          {
+            "name": "Jaladanki",
+            "te": "జలదంకి"
+          },
+          {
+            "name": "Brahmanakraka",
+            "te": "బ్రాహ్మణక్రాక"
+          },
+          {
+            "name": "Chodavaram",
+            "te": "చోడవరం"
+          },
+          {
+            "name": "Gatla Gumpalli",
+            "te": "గాట్ల గుంపల్లి"
+          },
+          {
+            "name": "Jammulapalem",
+            "te": "జమ్ములపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Kaligiri",
+        "te": "కలిగిరి",
+        "villages": [
+          {
+            "name": "Kaligiri",
+            "te": "కలిగిరి"
+          },
+          {
+            "name": "Ananthapuram",
+            "te": "అనంతపురం"
+          },
+          {
+            "name": "Chinna Annanaluru",
+            "te": "చిన్న అన్ననాలురు"
+          },
+          {
+            "name": "Kothapeta",
+            "te": "కొత్తపేట"
+          },
+          {
+            "name": "Peddakonduru",
+            "te": "పెద్దకొండూరు"
+          },
+          {
+            "name": "Velagapadu",
+            "te": "వెలగపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Vinjamur",
+        "te": "వింజమూరు",
+        "villages": [
+          {
+            "name": "Vinjamur Town",
+            "te": "వింజమూరు"
+          },
+          {
+            "name": "Bungakavur",
+            "te": "బుంగకావూరు"
+          },
+          {
+            "name": "Chakalakonda",
+            "te": "చాకలకొండ"
+          },
+          {
+            "name": "Gollavaripalli",
+            "te": "గొల్లవారిపల్లి"
+          },
+          {
+            "name": "Janardhanapuram",
+            "te": "జనార్దనపురం"
+          },
+          {
+            "name": "Utukur",
+            "te": "ఉటుకూరు"
+          }
+        ]
+      },
+      {
+        "name": "Duttalur",
+        "te": "దత్తలూరు",
+        "villages": [
+          {
+            "name": "Duttalur",
+            "te": "దత్తలూరు"
+          },
+          {
+            "name": "Brahmeswaram",
+            "te": "బ్రహ్మేశ్వరం"
+          },
+          {
+            "name": "Mandallapalli",
+            "te": "మండళ్లపల్లి"
+          },
+          {
+            "name": "Narrawada",
+            "te": "నరవాడ"
+          },
+          {
+            "name": "Rachavaripalli",
+            "te": "రాచవారిపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Udayagiri",
+        "te": "ఉదయగిరి",
+        "villages": [
+          {
+            "name": "Udayagiri Town",
+            "te": "ఉదయగిరి"
+          },
+          {
+            "name": "Bandaganipalle",
+            "te": "బండగానిపల్లె"
+          },
+          {
+            "name": "Gandipalem",
+            "te": "గండిపాలెం"
+          },
+          {
+            "name": "Kotayapalle",
+            "te": "కోటయ్యపల్లె"
+          },
+          {
+            "name": "Pullayapalle",
+            "te": "పుల్లయ్యపల్లె"
+          }
+        ]
+      },
+      {
+        "name": "Varikuntapadu",
+        "te": "వరికుంటపాడు",
+        "villages": [
+          {
+            "name": "Varikuntapadu",
+            "te": "వరికుంటపాడు"
+          },
+          {
+            "name": "Bhaskararaopeta",
+            "te": "భాస్కరరావుపేట"
+          },
+          {
+            "name": "Guvvali",
+            "te": "గువ్వలి"
+          },
+          {
+            "name": "Pamurupalli",
+            "te": "పామూరుపల్లి"
+          },
+          {
+            "name": "Thotlacheruvupalli",
+            "te": "తోట్లచెరువుపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Seetharamapuram",
+        "te": "సీతారామపురం",
+        "villages": [
+          {
+            "name": "Seetharamapuram",
+            "te": "సీతారామపురం"
+          },
+          {
+            "name": "Ayyavaripalli",
+            "te": "అయ్యవారిపల్లి"
+          },
+          {
+            "name": "Chinanagampalli",
+            "te": "చిననాగంపల్లి"
+          },
+          {
+            "name": "Devarajusurapalli",
+            "te": "దేవరాజుసూరపల్లి"
+          },
+          {
+            "name": "Pandrangi",
+            "te": "పాండ్రంగి"
+          }
+        ]
+      },
+      {
+        "name": "Marripadu",
+        "te": "మర్రిపాడు",
+        "villages": [
+          {
+            "name": "Marripadu",
+            "te": "మర్రిపాడు"
+          },
+          {
+            "name": "Allampadu",
+            "te": "అల్లంపాడు"
+          },
+          {
+            "name": "Brahmanapalli",
+            "te": "బ్రాహ్మణపల్లి"
+          },
+          {
+            "name": "Kampasamudram",
+            "te": "కంపసముద్రం"
+          },
+          {
+            "name": "Padamatinaidupalli",
+            "te": "పడమటినాయుడుపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Ananthasagaram",
+        "te": "అనంతసాగరం",
+        "villages": [
+          {
+            "name": "Ananthasagaram",
+            "te": "అనంతసాగరం"
+          },
+          {
+            "name": "Devarayapalli",
+            "te": "దేవరాయపల్లి"
+          },
+          {
+            "name": "Inagaluru",
+            "te": "ఇనగలూరు"
+          },
+          {
+            "name": "Minagallu",
+            "te": "మినగల్లు"
+          },
+          {
+            "name": "Revuru",
+            "te": "రేవూరు"
+          }
+        ]
+      },
+      {
+        "name": "Kaluvoya",
+        "te": "కలువోయ",
+        "villages": [
+          {
+            "name": "Kaluvoya",
+            "te": "కలువోయ"
+          },
+          {
+            "name": "Balayapalli",
+            "te": "బాలాయపల్లి"
+          },
+          {
+            "name": "Chinagopavaram",
+            "te": "చినగోపవరం"
+          },
+          {
+            "name": "Kanupuru",
+            "te": "కనుపూరు"
+          },
+          {
+            "name": "Telugurayanipalli",
+            "te": "తెలుగురాయనిపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Chejerla",
+        "te": "చేజర్ల",
+        "villages": [
+          {
+            "name": "Chejerla",
+            "te": "చేజర్ల"
+          },
+          {
+            "name": "Akilavalasa",
+            "te": "అకిలవలస"
+          },
+          {
+            "name": "Chittaluru",
+            "te": "చిత్తలూరు"
+          },
+          {
+            "name": "Gollapalli",
+            "te": "గొల్లపల్లి"
+          },
+          {
+            "name": "Nagulavellaturu",
+            "te": "నాగులవెల్లటూరు"
+          },
+          {
+            "name": "Padamatipalem",
+            "te": "పడమటిపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Podalakur",
+        "te": "పొదలకూరు",
+        "villages": [
+          {
+            "name": "Podalakur Town",
+            "te": "పొదలకూరు"
+          },
+          {
+            "name": "Degapudi",
+            "te": "డేగపూడి"
+          },
+          {
+            "name": "Kanuparthi",
+            "te": "కనుపర్తి"
+          },
+          {
+            "name": "Mogalluru",
+            "te": "మొగల్లూరు"
+          },
+          {
+            "name": "Nawabpeta",
+            "te": "నవాబుపేట"
+          },
+          {
+            "name": "Thodur",
+            "te": "తోడూరు"
+          }
+        ]
+      },
+      {
+        "name": "Rapur",
+        "te": "రాపూరు",
+        "villages": [
+          {
+            "name": "Rapur",
+            "te": "రాపూరు"
+          },
+          {
+            "name": "Akkamambapuram",
+            "te": "అక్కమాంబాపురం"
+          },
+          {
+            "name": "Gonupalli",
+            "te": "గోనుపల్లి"
+          },
+          {
+            "name": "Penubarthi",
+            "te": "పెనుబర్తి"
+          },
+          {
+            "name": "Santhanuthalapadu",
+            "te": "సంతనూతలపాడు"
+          },
+          {
+            "name": "Tegacherla",
+            "te": "తెగచెర్ల"
+          }
+        ]
+      },
+      {
+        "name": "Saidapuram",
+        "te": "సైదాపురం",
+        "villages": [
+          {
+            "name": "Saidapuram",
+            "te": "సైదాపురం"
+          },
+          {
+            "name": "Chaganam",
+            "te": "చాగనం"
+          },
+          {
+            "name": "Griddaluru",
+            "te": "గ్రిద్దలూరు"
+          },
+          {
+            "name": "Orupalli",
+            "te": "ఓరుపల్లి"
+          },
+          {
+            "name": "Thippavarappadu",
+            "te": "తిప్పవరప్పాడు"
+          }
+        ]
+      },
+      {
+        "name": "Venkatagiri",
+        "te": "వెంకటగిరి",
+        "villages": [
+          {
+            "name": "Venkatagiri Town",
+            "te": "వెంకటగిరి"
+          },
+          {
+            "name": "Ammapalem",
+            "te": "అమ్మపాలెం"
+          },
+          {
+            "name": "Bangarammapeta",
+            "te": "బంగారమ్మపేట"
+          },
+          {
+            "name": "Kalapadu",
+            "te": "కాలపాడు"
+          },
+          {
+            "name": "Managuntapadu",
+            "te": "మనగుంటపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Dakkili",
+        "te": "డక్కిలి",
+        "villages": [
+          {
+            "name": "Dakkili",
+            "te": "డక్కిలి"
+          },
+          {
+            "name": "Althurupadu",
+            "te": "అల్తురుపాడు"
+          },
+          {
+            "name": "Chapalapalli",
+            "te": "చాపలపల్లి"
+          },
+          {
+            "name": "Kothanalapadu",
+            "te": "కొత్తనలపాడు"
+          },
+          {
+            "name": "Madhavayapalem",
+            "te": "మాధవయ్యపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Balayapalle",
+        "te": "బాలాయపల్లె",
+        "villages": [
+          {
+            "name": "Balayapalle",
+            "te": "బాలాయపల్లె"
+          },
+          {
+            "name": "Chittedu",
+            "te": "చిట్టేడు"
+          },
+          {
+            "name": "Golagunta",
+            "te": "గొలగుంట"
+          },
+          {
+            "name": "Nidigallu",
+            "te": "నిడిగల్లు"
+          },
+          {
+            "name": "Vadlapudi",
+            "te": "వడ్లపూడి"
+          }
+        ]
+      },
+      {
+        "name": "Ojili",
+        "te": "ఓజిలి",
+        "villages": [
+          {
+            "name": "Ojili",
+            "te": "ఓజిలి"
+          },
+          {
+            "name": "Aruru",
+            "te": "ఆరూరు"
+          },
+          {
+            "name": "Gurramkonda",
+            "te": "గుర్రంకొండ"
+          },
+          {
+            "name": "Karikadu",
+            "te": "కరికాదు"
+          },
+          {
+            "name": "Manepalli",
+            "te": "మనేపల్లి"
+          },
+          {
+            "name": "Saguturu",
+            "te": "సాగుటూరు"
+          }
+        ]
+      },
+      {
+        "name": "Chillakur",
+        "te": "చిల్లకూరు",
+        "villages": [
+          {
+            "name": "Chillakur",
+            "te": "చిల్లకూరు"
+          },
+          {
+            "name": "Ballavolu",
+            "te": "బల్లవోలు"
+          },
+          {
+            "name": "Budanam",
+            "te": "బుదనం"
+          },
+          {
+            "name": "Kadapatra",
+            "te": "కడపత్ర"
+          },
+          {
+            "name": "Muthyalapadu",
+            "te": "ముత్యాలపాడు"
+          },
+          {
+            "name": "Thamminapatnam",
+            "te": "తమ్మినపట్నం"
+          }
+        ]
+      },
+      {
+        "name": "Kota",
+        "te": "కోట",
+        "villages": [
+          {
+            "name": "Kota",
+            "te": "కోట"
+          },
+          {
+            "name": "Allampadu",
+            "te": "అల్లంపాడు"
+          },
+          {
+            "name": "Gudali",
+            "te": "గూడలి"
+          },
+          {
+            "name": "Kothapatnam",
+            "te": "కొత్తపట్నం"
+          },
+          {
+            "name": "Siddavaram",
+            "te": "సిద్ధవరం"
+          },
+          {
+            "name": "Thinnelapudi",
+            "te": "తిన్నెలపూడి"
+          }
+        ]
+      },
+      {
+        "name": "Vakadu",
+        "te": "వాకాడు",
+        "villages": [
+          {
+            "name": "Vakadu",
+            "te": "వాకాడు"
+          },
+          {
+            "name": "Durgavaram",
+            "te": "దుర్గవరం"
+          },
+          {
+            "name": "Konduru",
+            "te": "కొండూరు"
+          },
+          {
+            "name": "Pulinjerikuppam",
+            "te": "పులింజేరికుప్పం"
+          },
+          {
+            "name": "Reddykandriga",
+            "te": "రెడ్డికండ్రిగ"
+          },
+          {
+            "name": "Valamedu",
+            "te": "వలమేడు"
+          }
+        ]
+      },
+      {
+        "name": "Chittamur",
+        "te": "చిట్టమూరు",
+        "villages": [
+          {
+            "name": "Chittamur",
+            "te": "చిట్టమూరు"
+          },
+          {
+            "name": "Aruru",
+            "te": "ఆరూరు"
+          },
+          {
+            "name": "Eswarawaka",
+            "te": "ఈశ్వరవాక"
+          },
+          {
+            "name": "Mallam",
+            "te": "మల్లం"
+          },
+          {
+            "name": "Mukkidipalem",
+            "te": "ముక్కిడిపాలెం"
+          },
+          {
+            "name": "Pittedu",
+            "te": "పిట్టేడు"
+          }
+        ]
+      },
+      {
+        "name": "Manubolu",
+        "te": "మనుబోలు",
+        "villages": [
+          {
+            "name": "Manubolu",
+            "te": "మనుబోలు"
+          },
+          {
+            "name": "Bandepalli",
+            "te": "బండేపల్లి"
+          },
+          {
+            "name": "Cherukumudi",
+            "te": "చెరుకుముడి"
+          },
+          {
+            "name": "Kagithalapuru",
+            "te": "కాగితాలపూరు"
+          },
+          {
+            "name": "Pidurupalem",
+            "te": "పిదురుపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Muthukur",
+        "te": "ముత్తుకూరు",
+        "villages": [
+          {
+            "name": "Muthukur",
+            "te": "ముత్తుకూరు"
+          },
+          {
+            "name": "Krishnapatnam",
+            "te": "కృష్ణపట్నం"
+          },
+          {
+            "name": "Brahadevi",
+            "te": "బ్రహ్మదేవి"
+          },
+          {
+            "name": "Epuru",
+            "te": "ఈపూరు"
+          },
+          {
+            "name": "Malluru",
+            "te": "మల్లూరు"
+          },
+          {
+            "name": "Pantapalem",
+            "te": "పాంతపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Thotapalligudur",
+        "te": "తోటపల్లిగూడూరు",
+        "villages": [
+          {
+            "name": "Thotapalligudur",
+            "te": "తోటపల్లిగూడూరు"
+          },
+          {
+            "name": "Koduru",
+            "te": "కోడూరు"
+          },
+          {
+            "name": "Narukuru",
+            "te": "నరుకూరు"
+          },
+          {
+            "name": "Peddacherukuru",
+            "te": "పెద్దచెరుకూరు"
+          },
+          {
+            "name": "Venkannapalem",
+            "te": "వెంకన్నపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Kandukur",
+        "te": "కందుకూరు",
+        "villages": [
+          {
+            "name": "Kandukur Town",
+            "te": "కందుకూరు టౌన్"
+          },
+          {
+            "name": "Ananthasagaram",
+            "te": "అనంతసాగరం"
+          },
+          {
+            "name": "Kovur",
+            "te": "కోవూరు"
+          },
+          {
+            "name": "Madanagopalapuram",
+            "te": "మదనగోపాలపురం"
+          },
+          {
+            "name": "Oguru",
+            "te": "ఓగూరు"
+          },
+          {
+            "name": "Palukuru",
+            "te": "పలుకూరు"
+          },
+          {
+            "name": "Vikkirala Peta",
+            "te": "విక్కిరాలపేట"
+          }
+        ]
+      },
+      {
+        "name": "Lingasamudram",
+        "te": "లింగసముద్రం",
+        "villages": [
+          {
+            "name": "Lingasamudram",
+            "te": "లింగసముద్రం"
+          },
+          {
+            "name": "Chilagathota",
+            "te": "చిలగతోట"
+          },
+          {
+            "name": "Gangapalem",
+            "te": "గంగపాలెం"
+          },
+          {
+            "name": "Muthyala Padu",
+            "te": "ముత్యాలపాడు"
+          },
+          {
+            "name": "Thimmanapalem",
+            "te": "తిమ్మనపాలెం"
+          },
+          {
+            "name": "Vengalapuram",
+            "te": "వెంగళాపురం"
+          }
+        ]
+      },
+      {
+        "name": "Gudluru",
+        "te": "గుడ్లూరు",
+        "villages": [
+          {
+            "name": "Gudluru",
+            "te": "గుడ్లూరు"
+          },
+          {
+            "name": "Basireddypalem",
+            "te": "బసిరెడ్డిపాలెం"
+          },
+          {
+            "name": "Chejarla",
+            "te": "చేజర్ల"
+          },
+          {
+            "name": "Kothapeta",
+            "te": "కొత్తపేట"
+          },
+          {
+            "name": "Mocherla",
+            "te": "మోచెర్ల"
+          },
+          {
+            "name": "Pottempadu",
+            "te": "పొట్టెంపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Ulavapadu",
+        "te": "ఉలవపాడు",
+        "villages": [
+          {
+            "name": "Ulavapadu",
+            "te": "ఉలవపాడు"
+          },
+          {
+            "name": "Atmakuru",
+            "te": "ఆత్మకూరు"
+          },
+          {
+            "name": "Bheemavaram",
+            "te": "భీమవరం"
+          },
+          {
+            "name": "Chagollu",
+            "te": "చాగోలు"
+          },
+          {
+            "name": "Karedu",
+            "te": "కారేడు"
+          },
+          {
+            "name": "Manneti Kota",
+            "te": "మన్నేటికోట"
+          },
+          {
+            "name": "Ramayapatnam",
+            "te": "రామాయపట్నం"
+          }
+        ]
+      },
+      {
+        "name": "Voletivaripalem",
+        "te": "వోలేటివారిపాలెం",
+        "villages": [
+          {
+            "name": "Voletivaripalem",
+            "te": "వోలేటివారిపాలెం"
+          },
+          {
+            "name": "Chundi",
+            "te": "చుండి"
+          },
+          {
+            "name": "Kunkupadu",
+            "te": "కుంకుపాడు"
+          },
+          {
+            "name": "Nallaguntla",
+            "te": "నల్లగుంట్ల"
+          },
+          {
+            "name": "Pokuru",
+            "te": "పోకూరు"
+          },
+          {
+            "name": "Sakhavaram",
+            "te": "శాఖవరం"
+          }
+        ]
+      },
+      {
+        "name": "Kondapi",
+        "te": "కొండపి",
+        "villages": [
+          {
+            "name": "Kondapi",
+            "te": "కొండపి"
+          },
+          {
+            "name": "Anakarlapudi",
+            "te": "అనకర్లపూడి"
+          },
+          {
+            "name": "Chinna Kandukur",
+            "te": "చిన్న కందుకూరు"
+          },
+          {
+            "name": "Guravajipeta",
+            "te": "గురవాజిపేట"
+          },
+          {
+            "name": "Nenurupadu",
+            "te": "నెనూరుపాడు"
+          },
+          {
+            "name": "Petlur",
+            "te": "పెట్లూరు"
+          }
+        ]
+      },
+      {
+        "name": "Zarugumilli",
+        "te": "జరుగుమిల్లి",
+        "villages": [
+          {
+            "name": "Zarugumilli",
+            "te": "జరుగుమిల్లి"
+          },
+          {
+            "name": "Chavakali",
+            "te": "చావకలి"
+          },
+          {
+            "name": "Kamepalli",
+            "te": "కామేపల్లి"
+          },
+          {
+            "name": "Nandipadu",
+            "te": "నందిపాడు"
+          },
+          {
+            "name": "Pavuluru",
+            "te": "పావులూరు"
+          },
+          {
+            "name": "Vangapadu",
+            "te": "వంగపాడు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Chittoor",
+    "te": "చిత్తూరు",
+    "code": "CTR",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Chittoor Urban & Rural",
+        "te": "చిత్తూరు",
+        "villages": [
+          {
+            "name": "Murakambattu",
+            "te": "మురకంబట్టు"
+          },
+          {
+            "name": "Greamspet",
+            "te": "గ్రీమ్స్‌పేట్"
+          },
+          {
+            "name": "Kattamanchi",
+            "te": "కట్టమంచి"
+          },
+          {
+            "name": "Mapakshi",
+            "te": "మాపాక్షి"
+          },
+          {
+            "name": "Thimmasamudram",
+            "te": "తిమ్మసముద్రం"
+          },
+          {
+            "name": "Aragonda",
+            "te": "అరగొండ"
+          },
+          {
+            "name": "Bandi Palli",
+            "te": "బండి పల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Palamaner",
+        "te": "పలమనేరు",
+        "villages": [
+          {
+            "name": "Palamaner Town",
+            "te": "పలమనేరు"
+          },
+          {
+            "name": "Bayyappareddipalle",
+            "te": "బయ్యప్పరెడ్డిపల్లె"
+          },
+          {
+            "name": "Kurubalapalle",
+            "te": "కురుబలపల్లె"
+          },
+          {
+            "name": "Moram",
+            "te": "మోరం"
+          },
+          {
+            "name": "Pengara",
+            "te": "పెంగర"
+          },
+          {
+            "name": "Samireddipalle",
+            "te": "సమిరెడ్డిపల్లె"
+          }
+        ]
+      },
+      {
+        "name": "Kuppam",
+        "te": "కుప్పం",
+        "villages": [
+          {
+            "name": "Kuppam Town",
+            "te": "కుప్పం"
+          },
+          {
+            "name": "Cheldiganipalle",
+            "te": "చెల్దిగానిపల్లె"
+          },
+          {
+            "name": "Gudupalle Border",
+            "te": "గుడుపల్లె"
+          },
+          {
+            "name": "Kallupalle",
+            "te": "కల్లుపల్లె"
+          },
+          {
+            "name": "Nanjaiahpalli",
+            "te": "నంజయపల్లి"
+          },
+          {
+            "name": "Peddabangarnatham",
+            "te": "పెద్దబంగారునత్తం"
+          }
+        ]
+      },
+      {
+        "name": "Punganur",
+        "te": "పుంగనూరు",
+        "villages": [
+          {
+            "name": "Punganur Town",
+            "te": "పుంగనూరు"
+          },
+          {
+            "name": "Chadalla",
+            "te": "చాదల్ల"
+          },
+          {
+            "name": "Eguva Palli",
+            "te": "ఎగువ పల్లి"
+          },
+          {
+            "name": "Kummaranatham",
+            "te": "కుమ్మరనత్తం"
+          },
+          {
+            "name": "Melumoi",
+            "te": "మేలుమోయి"
+          },
+          {
+            "name": "Vanamaladinne",
+            "te": "వనమలదిన్నె"
+          }
+        ]
+      },
+      {
+        "name": "Nagari",
+        "te": "నగరి",
+        "villages": [
+          {
+            "name": "Nagari Town",
+            "te": "నగరి"
+          },
+          {
+            "name": "Bugga Agraharam",
+            "te": "బుగ్గ అగ్రహారం"
+          },
+          {
+            "name": "Keelapudi",
+            "te": "కీలపూడి"
+          },
+          {
+            "name": "Mittapalem",
+            "te": "మిట్టపాలెం"
+          },
+          {
+            "name": "Mudipalle",
+            "te": "ముడిపల్లె"
+          },
+          {
+            "name": "Satrawada",
+            "te": "సత్రవాడ"
+          }
+        ]
+      },
+      {
+        "name": "Bangarupalem",
+        "te": "బంగారుపాలెం",
+        "villages": [
+          {
+            "name": "Bangarupalem",
+            "te": "బంగారుపాలెం"
+          },
+          {
+            "name": "Gundlapalle",
+            "te": "గుండ్లపల్లె"
+          },
+          {
+            "name": "Mogili",
+            "te": "మొగిలి"
+          },
+          {
+            "name": "Ragimanupenta",
+            "te": "రాగిమానుపెంట"
+          },
+          {
+            "name": "Thumbakunta",
+            "te": "తుంబకుంట"
+          }
+        ]
+      },
+      {
+        "name": "Karvetinagaram",
+        "te": "కార్వేటినగరం",
+        "villages": [
+          {
+            "name": "Karvetinagaram",
+            "te": "కార్వేటినగరం"
+          },
+          {
+            "name": "Annur",
+            "te": "అన్నూరు"
+          },
+          {
+            "name": "Kethumalrajupuram",
+            "te": "కేతుమలరాజుపురం"
+          },
+          {
+            "name": "Ponduru",
+            "te": "పొందూరు"
+          },
+          {
+            "name": "Surendranagaram",
+            "te": "సురేంద్రనగరం"
+          }
+        ]
+      },
+      {
+        "name": "GD Nellore",
+        "te": "గంగాధర నెల్లూరు",
+        "villages": [
+          {
+            "name": "GD Nellore",
+            "te": "జి.డి. నెల్లూరు"
+          },
+          {
+            "name": "Agraharam",
+            "te": "అగ్రహారం"
+          },
+          {
+            "name": "Mahadevamangalam",
+            "te": "మహాదేవమంగళం"
+          },
+          {
+            "name": "Paleru",
+            "te": "పాలేరు"
+          },
+          {
+            "name": "Vepanjeri",
+            "te": "వేపంజరి"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tirupati",
+    "te": "తిరుపతి",
+    "code": "TPT",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Tirupati Urban & Rural",
+        "te": "తిరుపతి అర్బన్ / రూరల్",
+        "villages": [
+          {
+            "name": "Avilala",
+            "te": "అవిలాల"
+          },
+          {
+            "name": "Perur",
+            "te": "పేరూరు"
+          },
+          {
+            "name": "Mangalam",
+            "te": "మంగళం"
+          },
+          {
+            "name": "Thummalagunta",
+            "te": "తుమ్మలగుంట"
+          },
+          {
+            "name": "Mallavaram",
+            "te": "మల్లవరం"
+          },
+          {
+            "name": "Vedullacheruvu",
+            "te": "వెదుళ్లచెరువు"
+          },
+          {
+            "name": "Tiruchanur",
+            "te": "తిరుచానూరు"
+          }
+        ]
+      },
+      {
+        "name": "Chandragiri",
+        "te": "చంద్రగిరి",
+        "villages": [
+          {
+            "name": "Chandragiri Town",
+            "te": "చంద్రగిరి"
+          },
+          {
+            "name": "Agarampeta",
+            "te": "అగరంపేట"
+          },
+          {
+            "name": "Arepalli",
+            "te": "ఆరేపల్లి"
+          },
+          {
+            "name": "Kotakinda Palli",
+            "te": "కోటకింద పల్లి"
+          },
+          {
+            "name": "Narasingapuram",
+            "te": "నరసింగపురం"
+          },
+          {
+            "name": "Panapakam",
+            "te": "పానపాకం"
+          },
+          {
+            "name": "Reddivaripalle",
+            "te": "రెడ్డివారిపల్లె"
+          }
+        ]
+      },
+      {
+        "name": "Srikalahasti",
+        "te": "శ్రీకాళహస్తి",
+        "villages": [
+          {
+            "name": "Srikalahasti Rural",
+            "te": "శ్రీకాళహస్తి రూరల్"
+          },
+          {
+            "name": "Bahubalendruni Peta",
+            "te": "బాహుబలేంద్రుని పేట"
+          },
+          {
+            "name": "Cherlopalle",
+            "te": "చెర్లోపల్లె"
+          },
+          {
+            "name": "Gollapalle",
+            "te": "గొల్లపల్లె"
+          },
+          {
+            "name": "Kapisthalam",
+            "te": "కపిస్థలం"
+          },
+          {
+            "name": "Mannavaram",
+            "te": "మన్నవరం"
+          },
+          {
+            "name": "Subrahmanyapuram",
+            "te": "సుబ్రహ్మణ్యపురం"
+          }
+        ]
+      },
+      {
+        "name": "Renigunta",
+        "te": "రేణిగుంట",
+        "villages": [
+          {
+            "name": "Renigunta Town",
+            "te": "రేణిగుంట"
+          },
+          {
+            "name": "Gajulamandyam",
+            "te": "గాజులమండ్యం"
+          },
+          {
+            "name": "Guravaraju Palli",
+            "te": "గురవరాజు పల్లి"
+          },
+          {
+            "name": "Karakambadi",
+            "te": "కరకంబడి"
+          },
+          {
+            "name": "Mamandur",
+            "te": "మామండూరు"
+          },
+          {
+            "name": "Thandlam",
+            "te": "తాండ్లం"
+          }
+        ]
+      },
+      {
+        "name": "Puttur",
+        "te": "పుత్తూరు",
+        "villages": [
+          {
+            "name": "Puttur Town",
+            "te": "పుత్తూరు"
+          },
+          {
+            "name": "Cherivi",
+            "te": "చేరివి"
+          },
+          {
+            "name": "Eswarapuram",
+            "te": "ఈశ్వరపురం"
+          },
+          {
+            "name": "Koppedu",
+            "te": "కొప్పేడు"
+          },
+          {
+            "name": "Sirangavaram",
+            "te": "సిరంగవరం"
+          },
+          {
+            "name": "Vepagunta",
+            "te": "వేపగుంట"
+          }
+        ]
+      },
+      {
+        "name": "Pakala",
+        "te": "పాకాల",
+        "villages": [
+          {
+            "name": "Pakala Town",
+            "te": "పాకాల"
+          },
+          {
+            "name": "Damalcheruvu",
+            "te": "దామలచెరువు"
+          },
+          {
+            "name": "Gorpadu",
+            "te": "గోర్పాటు"
+          },
+          {
+            "name": "Peddaramapuram",
+            "te": "పెద్దరామాపురం"
+          },
+          {
+            "name": "Subbareddipalle",
+            "te": "సుబ్బారెడ్డిపల్లె"
+          }
+        ]
+      },
+      {
+        "name": "Satyavedu",
+        "te": "సత్యవేడు",
+        "villages": [
+          {
+            "name": "Satyavedu Town",
+            "te": "సత్యవేడు"
+          },
+          {
+            "name": "Dasukuppam",
+            "te": "దాసుకుప్పం"
+          },
+          {
+            "name": "Madanambedu",
+            "te": "మదనంబేడు"
+          },
+          {
+            "name": "Rajagopalapuram",
+            "te": "రాజగోపాలపురం"
+          },
+          {
+            "name": "Vanganoor",
+            "te": "వంగనూరు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Kadapa (YSR District)",
+    "te": "కడప (వైఎస్సార్ జిల్లా)",
+    "code": "KDP",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Kadapa Urban & Rural",
+        "te": "కడప",
+        "villages": [
+          {
+            "name": "Akkayapalle",
+            "te": "అక్కయ్యపల్లె"
+          },
+          {
+            "name": "Chinna Chowk",
+            "te": "చిన్న చౌక్"
+          },
+          {
+            "name": "Putlampalle",
+            "te": "పుట్లంపల్లె"
+          },
+          {
+            "name": "Ramanjaneyapuram",
+            "te": "రామాంజనేయపురం"
+          },
+          {
+            "name": "Utukur",
+            "te": "ఉటుకూరు"
+          },
+          {
+            "name": "Rami Reddy Palli",
+            "te": "రామిరెడ్డి పల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Proddatur",
+        "te": "ప్రొద్దుటూరు",
+        "villages": [
+          {
+            "name": "Proddatur Rural",
+            "te": "ప్రొద్దుటూరు రూరల్"
+          },
+          {
+            "name": "Bollavaram",
+            "te": "బొల్లవరం"
+          },
+          {
+            "name": "Dorasanipalle",
+            "te": "దొరసానిపల్లె"
+          },
+          {
+            "name": "Kalluru",
+            "te": "కల్లూరు"
+          },
+          {
+            "name": "Modameedipalle",
+            "te": "మోదమీదిపల్లె"
+          },
+          {
+            "name": "Rameswaram",
+            "te": "రామేశ్వరం"
+          },
+          {
+            "name": "Velavali",
+            "te": "వెలవలి"
+          }
+        ]
+      },
+      {
+        "name": "Pulivendula",
+        "te": "పులివెందుల",
+        "villages": [
+          {
+            "name": "Pulivendula Town",
+            "te": "పులివెందుల"
+          },
+          {
+            "name": "Ahobilapuram",
+            "te": "అహోబిలాపురం"
+          },
+          {
+            "name": "Bakrapuram",
+            "te": "బక్రాపురం"
+          },
+          {
+            "name": "Brahmanapalle",
+            "te": "బ్రాహ్మణపల్లె"
+          },
+          {
+            "name": "Karakavandlapalle",
+            "te": "కారకవాండ్లపల్లె"
+          },
+          {
+            "name": "Peddarangapuram",
+            "te": "పెద్దరంగపురం"
+          },
+          {
+            "name": "Velpula",
+            "te": "వేల్పుల"
+          }
+        ]
+      },
+      {
+        "name": "Jammalamadugu",
+        "te": "జమ్మలమడుగు",
+        "villages": [
+          {
+            "name": "Jammalamadugu Town",
+            "te": "జమ్మలమడుగు"
+          },
+          {
+            "name": "Danavulapadu",
+            "te": "దానవులపాడు"
+          },
+          {
+            "name": "Gandikota",
+            "te": "గండికోట"
+          },
+          {
+            "name": "Gonegandla",
+            "te": "గోనెగండ్ల"
+          },
+          {
+            "name": "Moragudi",
+            "te": "మోరగుడి"
+          },
+          {
+            "name": "Ponnathota",
+            "te": "పొన్నతోట"
+          },
+          {
+            "name": "Suggala Palli",
+            "te": "సుగ్గల పల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Mydukur",
+        "te": "మైదుకూరు",
+        "villages": [
+          {
+            "name": "Mydukur Town",
+            "te": "మైదుకూరు"
+          },
+          {
+            "name": "Ganjikunta",
+            "te": "గంజికుంట"
+          },
+          {
+            "name": "Madirepalle",
+            "te": "మదిరేపల్లె"
+          },
+          {
+            "name": "Muddireddypalle",
+            "te": "ముద్దిరెడ్డిపల్లె"
+          },
+          {
+            "name": "Settivaripalle",
+            "te": "శెట్టివారిపల్లె"
+          },
+          {
+            "name": "Vanthipenta",
+            "te": "వంతిపెంట"
+          }
+        ]
+      },
+      {
+        "name": "Badvel",
+        "te": "బద్వేలు",
+        "villages": [
+          {
+            "name": "Badvel Town",
+            "te": "బద్వేలు"
+          },
+          {
+            "name": "Chennampalle",
+            "te": "చెన్నంపల్లె"
+          },
+          {
+            "name": "Gopavaram",
+            "te": "గోపవరం"
+          },
+          {
+            "name": "Kethuvaripalle",
+            "te": "కేతువారిపల్లె"
+          },
+          {
+            "name": "Pottapi",
+            "te": "పొత్తపి"
+          },
+          {
+            "name": "Venkatasettypalle",
+            "te": "వెంకటశెట్టిపల్లె"
+          }
+        ]
+      },
+      {
+        "name": "Kamalapuram",
+        "te": "కమలాపురం",
+        "villages": [
+          {
+            "name": "Kamalapuram Town",
+            "te": "కమలాపురం"
+          },
+          {
+            "name": "Chidipiralla",
+            "te": "చిడిపిరాళ్ల"
+          },
+          {
+            "name": "Gangavaram",
+            "te": "గంగవరం"
+          },
+          {
+            "name": "Pachapalle",
+            "te": "పాచపల్లె"
+          },
+          {
+            "name": "Sambatur",
+            "te": "సాంబటూరు"
+          },
+          {
+            "name": "Yerragudipadu",
+            "te": "ఎర్రగుడిపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Vempalli",
+        "te": "వేంపల్లి",
+        "villages": [
+          {
+            "name": "Vempalli Town",
+            "te": "వేంపల్లి"
+          },
+          {
+            "name": "Alavalapadu",
+            "te": "అలవలపాడు"
+          },
+          {
+            "name": "Idamadaka",
+            "te": "ఇడమడక"
+          },
+          {
+            "name": "Musalreddigaripalle",
+            "te": "ముసల్‌రెడ్డిగారిపల్లె"
+          },
+          {
+            "name": "Pamuluru",
+            "te": "పాములూరు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ongole (Prakasam)",
+    "te": "ఒంగోలు (ప్రకాశం జిల్లా)",
+    "code": "OGL",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Ongole Urban & Rural",
+        "te": "ఒంగోలు",
+        "villages": [
+          {
+            "name": "Kothapatnam Road",
+            "te": "కొత్తపట్నం రోడ్"
+          },
+          {
+            "name": "Mangamuru",
+            "te": "మంగమూరు"
+          },
+          {
+            "name": "Pelluru",
+            "te": "పెళ్లూరు"
+          },
+          {
+            "name": "Koppolu",
+            "te": "కొప్పోలు"
+          },
+          {
+            "name": "Mukthinuthalapadu",
+            "te": "ముక్తినూతలపాడు"
+          },
+          {
+            "name": "Throvagunta",
+            "te": "త్రోవగుంట"
+          },
+          {
+            "name": "Ulavapadu",
+            "te": "ఉలవపాడు"
+          },
+          {
+            "name": "Cheruvukommupalem",
+            "te": "చెరువుకొమ్ముపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Markapur",
+        "te": "మార్కాపురం",
+        "villages": [
+          {
+            "name": "Markapur Town",
+            "te": "మార్కాపురం"
+          },
+          {
+            "name": "Bollapalli",
+            "te": "బొల్లాపల్లి"
+          },
+          {
+            "name": "Chinna Yachavaram",
+            "te": "చిన్న యాచవరం"
+          },
+          {
+            "name": "Gajulapalli",
+            "te": "గాజులపల్లి"
+          },
+          {
+            "name": "Kolabheemunipadu",
+            "te": "కోలభీమునిపాడు"
+          },
+          {
+            "name": "Rayavaram",
+            "te": "రాయవరం"
+          },
+          {
+            "name": "Vemulakota",
+            "te": "వేములకోట"
+          }
+        ]
+      },
+      {
+        "name": "Kandukur",
+        "te": "కందుకూరు",
+        "villages": [
+          {
+            "name": "Kandukur Town",
+            "te": "కందుకూరు"
+          },
+          {
+            "name": "Ananthasagaram",
+            "te": "అనంతసాగరం"
+          },
+          {
+            "name": "Kovur",
+            "te": "కోవూరు"
+          },
+          {
+            "name": "Mahadevapuram",
+            "te": "మహాదేవపురం"
+          },
+          {
+            "name": "Oguru",
+            "te": "ఓగూరు"
+          },
+          {
+            "name": "Paluru",
+            "te": "పలూరు"
+          },
+          {
+            "name": "Vikki Palli",
+            "te": "విక్కి పల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Giddalur",
+        "te": "గిద్దలూరు",
+        "villages": [
+          {
+            "name": "Giddalur Town",
+            "te": "గిద్దలూరు"
+          },
+          {
+            "name": "Ambavaram",
+            "te": "అంబవరం"
+          },
+          {
+            "name": "Chattam Palle",
+            "te": "చట్టం పల్లె"
+          },
+          {
+            "name": "Kancharlapalle",
+            "te": "కంచర్లపల్లె"
+          },
+          {
+            "name": "Mundlapadu",
+            "te": "ముండ్లపాడు"
+          },
+          {
+            "name": "Sanapa Palli",
+            "te": "సనప పల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Chimakurthy",
+        "te": "చీమకుర్తి",
+        "villages": [
+          {
+            "name": "Chimakurthy Town",
+            "te": "చీమకుర్తి"
+          },
+          {
+            "name": "Budawada",
+            "te": "బుదవాడ"
+          },
+          {
+            "name": "Gonugunta",
+            "te": "గోనుగుంట"
+          },
+          {
+            "name": "Mylavaram",
+            "te": "మైలవరం"
+          },
+          {
+            "name": "Pidathalapudi",
+            "te": "పిడతలపూడి"
+          },
+          {
+            "name": "Ramateertham",
+            "te": "రామతీర్థం"
+          }
+        ]
+      },
+      {
+        "name": "Kanigiri",
+        "te": "కనిగిరి",
+        "villages": [
+          {
+            "name": "Kanigiri Town",
+            "te": "కనిగిరి"
+          },
+          {
+            "name": "Challagirigala",
+            "te": "చల్లాగిరిగల"
+          },
+          {
+            "name": "Dirasavancha",
+            "te": "దిరసవంచ"
+          },
+          {
+            "name": "Guravajipeta",
+            "te": "గురవాజిపేట"
+          },
+          {
+            "name": "Punugodu",
+            "te": "పునుగోడు"
+          },
+          {
+            "name": "Yadavalli",
+            "te": "యాదవల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Podili",
+        "te": "పొదిలి",
+        "villages": [
+          {
+            "name": "Podili Town",
+            "te": "పొదిలి"
+          },
+          {
+            "name": "Ammavari Palli",
+            "te": "అమ్మవారి పల్లి"
+          },
+          {
+            "name": "Chinna Arikavula",
+            "te": "చిన్న అరికవుల"
+          },
+          {
+            "name": "Kambaladinne",
+            "te": "కంబాలదిన్నె"
+          },
+          {
+            "name": "Nandipalem",
+            "te": "నందిపాలెం"
+          },
+          {
+            "name": "Thummagunta",
+            "te": "తుమ్మగుంట"
+          }
+        ]
+      },
+      {
+        "name": "Singarayakonda",
+        "te": "సింగరాయకొండ",
+        "villages": [
+          {
+            "name": "Singarayakonda",
+            "te": "సింగరాయకొండ"
+          },
+          {
+            "name": "Binginapalle",
+            "te": "బింగినపల్లె"
+          },
+          {
+            "name": "Pakala",
+            "te": "పాకాల బీచ్"
+          },
+          {
+            "name": "Sanampudi",
+            "te": "సానంపూడి"
+          },
+          {
+            "name": "Somaraju Palli",
+            "te": "సోమరాజు పల్లి"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Bapatla",
+    "te": "బాపట్ల",
+    "code": "BPT",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Bapatla",
+        "te": "బాపట్ల",
+        "villages": [
+          {
+            "name": "Bapatla Rural",
+            "te": "బాపట్ల రూరల్"
+          },
+          {
+            "name": "Appikatla",
+            "te": "అప్పికట్ల"
+          },
+          {
+            "name": "Suryalanka",
+            "te": "సూర్యలంక"
+          },
+          {
+            "name": "Bethapudi",
+            "te": "బేతపూడి"
+          },
+          {
+            "name": "Jillellamudi",
+            "te": "జిల్లేళ్లమూడి"
+          },
+          {
+            "name": "Maruproluvari Palem",
+            "te": "మారుప్రోలువాని పాలెం"
+          },
+          {
+            "name": "Muthayapalem",
+            "te": "ముత్తాయపాలెం"
+          },
+          {
+            "name": "Vedullapalli",
+            "te": "వెదుళ్లపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Chirala",
+        "te": "చీరాల",
+        "villages": [
+          {
+            "name": "Chirala Rural",
+            "te": "చీరాల రూరల్"
+          },
+          {
+            "name": "Ipurupalem",
+            "te": "ఈపురుపాలెం"
+          },
+          {
+            "name": "Kavali Kothapeta",
+            "te": "కోవలి కొత్తపేట"
+          },
+          {
+            "name": "Kothapet",
+            "te": "కొత్తపేట"
+          },
+          {
+            "name": "Perala",
+            "te": "పేరాల"
+          },
+          {
+            "name": "Vodarevu",
+            "te": "ఓడరేవు"
+          }
+        ]
+      },
+      {
+        "name": "Vetapalem",
+        "te": "వేటపాలెం",
+        "villages": [
+          {
+            "name": "Vetapalem Town",
+            "te": "వేటపాలెం"
+          },
+          {
+            "name": "Amancharla",
+            "te": "అమంచర్ల"
+          },
+          {
+            "name": "Challareddipalem",
+            "te": "చల్లారెడ్డిపాలెం"
+          },
+          {
+            "name": "Desanipeta",
+            "te": "దేశానిపేట"
+          },
+          {
+            "name": "Pandillapalle",
+            "te": "పందిళ్లపల్లె"
+          },
+          {
+            "name": "Ramannapet",
+            "te": "రామన్నపేట"
+          }
+        ]
+      },
+      {
+        "name": "Repalle",
+        "te": "రేపల్లె",
+        "villages": [
+          {
+            "name": "Repalle Rural",
+            "te": "రేపల్లె రూరల్"
+          },
+          {
+            "name": "Betapudi",
+            "te": "బేతపూడి"
+          },
+          {
+            "name": "Chavali",
+            "te": "చావలి"
+          },
+          {
+            "name": "Isakapalle",
+            "te": "ఇసకపల్లె"
+          },
+          {
+            "name": "Karumuru",
+            "te": "కరుమూరు"
+          },
+          {
+            "name": "Penumudi",
+            "te": "పెనుమూడి"
+          },
+          {
+            "name": "Uppudi",
+            "te": "ఉప్పుడి"
+          }
+        ]
+      },
+      {
+        "name": "Karamchedu",
+        "te": "కారంచేడు",
+        "villages": [
+          {
+            "name": "Karamchedu",
+            "te": "కారంచేడు"
+          },
+          {
+            "name": "Audipudi",
+            "te": "ఔదిపూడి"
+          },
+          {
+            "name": "Daggubadu",
+            "te": "దగ్గుబాడు"
+          },
+          {
+            "name": "Kunkalamarru",
+            "te": "కుంకలమర్రు"
+          },
+          {
+            "name": "Swarna",
+            "te": "స్వర్ణ"
+          }
+        ]
+      },
+      {
+        "name": "Parchur",
+        "te": "పర్చూరు",
+        "villages": [
+          {
+            "name": "Parchur",
+            "te": "పర్చూరు"
+          },
+          {
+            "name": "Bodawada",
+            "te": "బోడవడ"
+          },
+          {
+            "name": "Chennubhotlapalem",
+            "te": "చెన్నుభొట్లపాలెం"
+          },
+          {
+            "name": "Devarapalle",
+            "te": "దేవరపల్లె"
+          },
+          {
+            "name": "Nagandla",
+            "te": "నాగండ్ల"
+          },
+          {
+            "name": "Upputur",
+            "te": "ఉప్పుటూరు"
+          }
+        ]
+      },
+      {
+        "name": "Nizampatnam",
+        "te": "నిజాంపట్నం",
+        "villages": [
+          {
+            "name": "Nizampatnam Port",
+            "te": "నిజాంపట్నం పోర్ట్"
+          },
+          {
+            "name": "Adavuladeevi",
+            "te": "అడవులదీవి"
+          },
+          {
+            "name": "Amudalapalle",
+            "te": "ఆముదాలపల్లె"
+          },
+          {
+            "name": "Dindi",
+            "te": "దిండి"
+          },
+          {
+            "name": "Kuchinapudi",
+            "te": "కూచినపూడి"
+          },
+          {
+            "name": "Pallapatla",
+            "te": "పల్లపట్ల"
+          }
+        ]
+      },
+      {
+        "name": "Martur",
+        "te": "మార్టూరు",
+        "villages": [
+          {
+            "name": "Martur",
+            "te": "మార్టూరు"
+          },
+          {
+            "name": "Bollapalli",
+            "te": "బొల్లాపల్లి"
+          },
+          {
+            "name": "Dronadula",
+            "te": "ద్రోణాడుల"
+          },
+          {
+            "name": "Jonnathali",
+            "te": "జొన్నతాళి"
+          },
+          {
+            "name": "Kolalapudi",
+            "te": "కోలలపూడి"
+          },
+          {
+            "name": "Valaparla",
+            "te": "వలపర్ల"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Anantapur (Ananthapuramu)",
+    "te": "అనంతపురం",
+    "code": "ATP",
+    "isPriority": true,
+    "mandals": [
+      {
+        "name": "Anantapur Urban & Rural",
+        "te": "అనంతపురం",
+        "villages": [
+          {
+            "name": "Kakkalapalle",
+            "te": "కక్కలపల్లె"
+          },
+          {
+            "name": "Papampeta",
+            "te": "పాపం పేట"
+          },
+          {
+            "name": "Rudrampeta",
+            "te": "రుద్రంపేట"
+          },
+          {
+            "name": "Alamuru",
+            "te": "ఆలమూరు"
+          },
+          {
+            "name": "Itikalapalle",
+            "te": "ఇటికాలపల్లె"
+          },
+          {
+            "name": "Kudair Road",
+            "te": "కుడేరు రోడ్"
+          },
+          {
+            "name": "Prasannayanapalle",
+            "te": "ప్రసన్నాయనపల్లె"
+          },
+          {
+            "name": "Raptadu",
+            "te": "రాప్తాడు"
+          }
+        ]
+      },
+      {
+        "name": "Guntakal",
+        "te": "గుంతకల్లు",
+        "villages": [
+          {
+            "name": "Guntakal Rural",
+            "te": "గుంతకల్లు రూరల్"
+          },
+          {
+            "name": "Dasanapalli",
+            "te": "దాసనపల్లి"
+          },
+          {
+            "name": "Donimukkala",
+            "te": "దోనిముక్కల"
+          },
+          {
+            "name": "Kasapuram",
+            "te": "కాసపురం"
+          },
+          {
+            "name": "Konginapalle",
+            "te": "కొంగినపల్లె"
+          },
+          {
+            "name": "Nalladasarapalle",
+            "te": "నల్లదాసరపల్లె"
+          },
+          {
+            "name": "Pathakothacheruvu",
+            "te": "పాతకొత్తచెరువు"
+          }
+        ]
+      },
+      {
+        "name": "Tadipatri",
+        "te": "తాడిపత్రి",
+        "villages": [
+          {
+            "name": "Tadipatri Rural",
+            "te": "తాడిపత్రి రూరల్"
+          },
+          {
+            "name": "Alur",
+            "te": "ఆలూరు"
+          },
+          {
+            "name": "Bhupalapuram",
+            "te": "భూపాలపురం"
+          },
+          {
+            "name": "Chinna Polamada",
+            "te": "చిన్న పోలమడ"
+          },
+          {
+            "name": "Komali",
+            "te": "కోమలి"
+          },
+          {
+            "name": "Nandipadu",
+            "te": "నందిపాడు"
+          },
+          {
+            "name": "Sajjaladinne",
+            "te": "సజ్జలదిన్నె"
+          },
+          {
+            "name": "Veerapuram",
+            "te": "వీరాపురం"
+          }
+        ]
+      },
+      {
+        "name": "Dharmavaram",
+        "te": "ధర్మవరం",
+        "villages": [
+          {
+            "name": "Dharmavaram Rural",
+            "te": "ధర్మవరం రూరల్"
+          },
+          {
+            "name": "Gotluru",
+            "te": "గొట్లూరు"
+          },
+          {
+            "name": "Kethireddypalli",
+            "te": "కేతిరెడ్డిపల్లి"
+          },
+          {
+            "name": "Mallakalva",
+            "te": "మల్లకాల్వ"
+          },
+          {
+            "name": "Ravulacheruvu",
+            "te": "రావులచెరువు"
+          },
+          {
+            "name": "Thumukunta",
+            "te": "తుముకుంట"
+          }
+        ]
+      },
+      {
+        "name": "Uravakonda",
+        "te": "ఉరవకొండ",
+        "villages": [
+          {
+            "name": "Uravakonda",
+            "te": "ఉరవకొండ"
+          },
+          {
+            "name": "Ameenepalli",
+            "te": "అమీనెపల్లి"
+          },
+          {
+            "name": "Budagavi",
+            "te": "బుదగావి"
+          },
+          {
+            "name": "Chebra",
+            "te": "చేబ్రా"
+          },
+          {
+            "name": "Neriki",
+            "te": "నేరికి"
+          },
+          {
+            "name": "Rayampalli",
+            "te": "రాయంపల్లి"
+          },
+          {
+            "name": "Veligonda",
+            "te": "వెలిగొండ"
+          }
+        ]
+      },
+      {
+        "name": "Kalyandurg",
+        "te": "కళ్యాణదుర్గం",
+        "villages": [
+          {
+            "name": "Kalyandurg",
+            "te": "కళ్యాణదుర్గం"
+          },
+          {
+            "name": "Brahmanapalli",
+            "te": "బ్రాహ్మణపల్లి"
+          },
+          {
+            "name": "Chapiri",
+            "te": "చాపిరి"
+          },
+          {
+            "name": "Gollepalli",
+            "te": "గొల్లెపల్లి"
+          },
+          {
+            "name": "Manirevu",
+            "te": "మనిరేవు"
+          },
+          {
+            "name": "Mudigal",
+            "te": "ముడిగల్"
+          }
+        ]
+      },
+      {
+        "name": "Rayadurg",
+        "te": "రాయదుర్గం",
+        "villages": [
+          {
+            "name": "Rayadurg Town",
+            "te": "రాయదుర్గం"
+          },
+          {
+            "name": "Avuladatla",
+            "te": "ఆవులదట్ల"
+          },
+          {
+            "name": "Belodu",
+            "te": "బెలోడు"
+          },
+          {
+            "name": "Honnuru",
+            "te": "హొన్నూరు"
+          },
+          {
+            "name": "Meenahalli",
+            "te": "మీనాహళ్లి"
+          },
+          {
+            "name": "Udegolam",
+            "te": "ఉడేగోళం"
+          }
+        ]
+      },
+      {
+        "name": "Singanamala",
+        "te": "శింగనమల",
+        "villages": [
+          {
+            "name": "Singanamala",
+            "te": "శింగనమల"
+          },
+          {
+            "name": "Jallipalli",
+            "te": "జల్లిపల్లి"
+          },
+          {
+            "name": "Kalluru",
+            "te": "కల్లూరు"
+          },
+          {
+            "name": "Lakhinayanipalli",
+            "te": "లఖినాయనిపల్లి"
+          },
+          {
+            "name": "Sodasanapalli",
+            "te": "సోడసానపల్లి"
+          },
+          {
+            "name": "Tharimala",
+            "te": "తరిమల"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Kurnool",
+    "te": "కర్నూలు",
+    "code": "KNL",
+    "mandals": [
+      {
+        "name": "Kurnool",
+        "te": "కర్నూలు",
+        "villages": [
+          {
+            "name": "Kallur",
+            "te": "కల్లూరు"
+          },
+          {
+            "name": "Joharapuram",
+            "te": "జోహరాపురం"
+          },
+          {
+            "name": "Mamidalapadu",
+            "te": "మామిడాలపాడు"
+          },
+          {
+            "name": "Ulchala",
+            "te": "ఉల్చాల"
+          }
+        ]
+      },
+      {
+        "name": "Adoni",
+        "te": "ఆదోని",
+        "villages": [
+          {
+            "name": "Adoni Town",
+            "te": "ఆదోని"
+          },
+          {
+            "name": "Basapuram",
+            "te": "బసపురం"
+          },
+          {
+            "name": "Mandagiri",
+            "te": "మందగిరి"
+          },
+          {
+            "name": "Peddakadubur",
+            "te": "పెద్దకడుబూరు"
+          }
+        ]
+      },
+      {
+        "name": "Yemmiganur",
+        "te": "ఎమ్మిగనూరు",
+        "villages": [
+          {
+            "name": "Yemmiganur Town",
+            "te": "ఎమ్మిగనూరు"
+          },
+          {
+            "name": "Banakacherla",
+            "te": "బనకచెర్ల"
+          },
+          {
+            "name": "Mugathi",
+            "te": "ముగతి"
+          }
+        ]
+      },
+      {
+        "name": "Alur",
+        "te": "ఆలూరు",
+        "villages": [
+          {
+            "name": "Alur",
+            "te": "ఆలూరు"
+          },
+          {
+            "name": "Halaharvi",
+            "te": "హలహర్వి"
+          },
+          {
+            "name": "Mariyapuram",
+            "te": "మరియాపురం"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nandyal",
+    "te": "నంద్యాల",
+    "code": "NDL",
+    "mandals": [
+      {
+        "name": "Nandyal",
+        "te": "నంద్యాల",
+        "villages": [
+          {
+            "name": "Nandyal Rural",
+            "te": "నంద్యాల రూరల్"
+          },
+          {
+            "name": "Ayaloor",
+            "te": "అయలూరు"
+          },
+          {
+            "name": "Mitnala",
+            "te": "మిత్నాల"
+          },
+          {
+            "name": "Noonepalle",
+            "te": "నూనెపల్లె"
+          }
+        ]
+      },
+      {
+        "name": "Allagadda",
+        "te": "ఆళ్లగడ్డ",
+        "villages": [
+          {
+            "name": "Allagadda",
+            "te": "ఆళ్లగడ్డ"
+          },
+          {
+            "name": "Ahobilam",
+            "te": "అహోబిలం"
+          },
+          {
+            "name": "Chagalmarri",
+            "te": "చాగలమర్రి"
+          },
+          {
+            "name": "Sirivel",
+            "te": "శిరివెళ్ల"
+          }
+        ]
+      },
+      {
+        "name": "Banaganapalle",
+        "te": "బనగానపల్లె",
+        "villages": [
+          {
+            "name": "Banaganapalle",
+            "te": "బనగానపల్లె"
+          },
+          {
+            "name": "Enakandla",
+            "te": "ఎనకండ్ల"
+          },
+          {
+            "name": "Panyam",
+            "te": "పాణ్యం"
+          }
+        ]
+      },
+      {
+        "name": "Atmakur (Kurnool)",
+        "te": "ఆత్మకూరు",
+        "villages": [
+          {
+            "name": "Atmakur",
+            "te": "ఆత్మకూరు"
+          },
+          {
+            "name": "Kothapalli",
+            "te": "కొత్తపల్లి"
+          },
+          {
+            "name": "Velgode",
+            "te": "వెల్గోడు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sri Sathya Sai",
+    "te": "శ్రీ సత్యసాయి",
+    "code": "SSS",
+    "mandals": [
+      {
+        "name": "Puttaparthi",
+        "te": "పుట్టపర్తి",
+        "villages": [
+          {
+            "name": "Prasanthi Nilayam",
+            "te": "ప్రశాంతి నిలయం"
+          },
+          {
+            "name": "Bukkapatnam",
+            "te": "బుక్కపట్నం"
+          },
+          {
+            "name": "Kothacheruvu",
+            "te": "కొత్తచెరువు"
+          }
+        ]
+      },
+      {
+        "name": "Kadiri",
+        "te": "కదిరి",
+        "villages": [
+          {
+            "name": "Kadiri Rural",
+            "te": "కదిరి రూరల్"
+          },
+          {
+            "name": "Alampur",
+            "te": "ఆలంపూర్"
+          },
+          {
+            "name": "Gandlapenta",
+            "te": "గాండ్లపెంట"
+          },
+          {
+            "name": "Tanakal",
+            "te": "తనకల్లు"
+          }
+        ]
+      },
+      {
+        "name": "Hindupur",
+        "te": "హిందూపురం",
+        "villages": [
+          {
+            "name": "Hindupur Rural",
+            "te": "హిందూపురం రూరల్"
+          },
+          {
+            "name": "Chilamathur",
+            "te": "చిలమత్తూరు"
+          },
+          {
+            "name": "Lepakshi",
+            "te": "లేపాక్షి"
+          }
+        ]
+      },
+      {
+        "name": "Penukonda",
+        "te": "పెనుకొండ",
+        "villages": [
+          {
+            "name": "Penukonda Town",
+            "te": "పెనుకొండ"
+          },
+          {
+            "name": "Gorantla",
+            "te": "గోరంట్ల"
+          },
+          {
+            "name": "Somandepalle",
+            "te": "సోమందేపల్లె"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Annamayya",
+    "te": "అన్నమయ్య",
+    "code": "ANM",
+    "mandals": [
+      {
+        "name": "Rayachoti",
+        "te": "రాయచోటి",
+        "villages": [
+          {
+            "name": "Rayachoti Rural",
+            "te": "రాయచోటి రూరల్"
+          },
+          {
+            "name": "Galiveedu",
+            "te": "గాలివీడు"
+          },
+          {
+            "name": "Sambepalli",
+            "te": "సంబేపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Madanapalle",
+        "te": "మదనపల్లె",
+        "villages": [
+          {
+            "name": "Madanapalle Rural",
+            "te": "మదనపల్లె రూరల్"
+          },
+          {
+            "name": "Horsley Hills",
+            "te": "హార్సిలీ హిల్స్"
+          },
+          {
+            "name": "Nimmanapalle",
+            "te": "నిమ్మనపల్లె"
+          },
+          {
+            "name": "Valmikipuram",
+            "te": "వాల్మీకిపురం"
+          }
+        ]
+      },
+      {
+        "name": "Rajampet",
+        "te": "రాజంపేట",
+        "villages": [
+          {
+            "name": "Rajampet",
+            "te": "రాజంపేట"
+          },
+          {
+            "name": "Nandalur",
+            "te": "నందలూరు"
+          },
+          {
+            "name": "Pullampeta",
+            "te": "పుల్లంపేట"
+          },
+          {
+            "name": "Tallapaka",
+            "te": "తాళ్లపాక"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Guntur",
+    "te": "గుంటూరు",
+    "code": "GNT",
+    "mandals": [
+      {
+        "name": "Guntur East & West",
+        "te": "గుంటూరు",
+        "villages": [
+          {
+            "name": "Etukuru",
+            "te": "ఏటుకూరు"
+          },
+          {
+            "name": "Nallapadu",
+            "te": "నల్లపాడు"
+          },
+          {
+            "name": "Pedakakani",
+            "te": "పెదకాకాని"
+          },
+          {
+            "name": "Pattabhipuram",
+            "te": "పట్టాభిపురం"
+          }
+        ]
+      },
+      {
+        "name": "Tenali",
+        "te": "తెనాలి",
+        "villages": [
+          {
+            "name": "Tenali Rural",
+            "te": "తెనాలి రూరల్"
+          },
+          {
+            "name": "Angalakuduru",
+            "te": "అంగలకుదురు"
+          },
+          {
+            "name": "Chinaravuru",
+            "te": "చినరావూరు"
+          },
+          {
+            "name": "Kolakaluru",
+            "te": "కొలకలూరు"
+          }
+        ]
+      },
+      {
+        "name": "Mangalagiri",
+        "te": "మంగళగిరి",
+        "villages": [
+          {
+            "name": "Mangalagiri Rural",
+            "te": "మంగళగిరి రూరల్"
+          },
+          {
+            "name": "Atmakur",
+            "te": "ఆత్మకూరు"
+          },
+          {
+            "name": "Kaza",
+            "te": "కాజ"
+          },
+          {
+            "name": "Nowluru",
+            "te": "నౌలూరు"
+          }
+        ]
+      },
+      {
+        "name": "Prathipadu",
+        "te": "ప్రత్తిపాడు",
+        "villages": [
+          {
+            "name": "Prathipadu",
+            "te": "ప్రత్తిపాడు"
+          },
+          {
+            "name": "Enamadala",
+            "te": "ఏనమదల"
+          },
+          {
+            "name": "Kondapadu",
+            "te": "కొండపాడు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Palnadu",
+    "te": "పల్నాడు",
+    "code": "PLN",
+    "mandals": [
+      {
+        "name": "Narasaraopet",
+        "te": "నర్సరావుపేట",
+        "villages": [
+          {
+            "name": "Narasaraopet Rural",
+            "te": "నర్సరావుపేట రూరల్"
+          },
+          {
+            "name": "Jonnalagadda",
+            "te": "జొన్నలగడ్డ"
+          },
+          {
+            "name": "Kotappakonda",
+            "te": "కోటప్పకొండ"
+          },
+          {
+            "name": "Petlurivaripalem",
+            "te": "పేట్లూరివారిపాలెం"
+          }
+        ]
+      },
+      {
+        "name": "Sattenapalle",
+        "te": "సత్తెనపల్లి",
+        "villages": [
+          {
+            "name": "Sattenapalle",
+            "te": "సత్తెనపల్లి"
+          },
+          {
+            "name": "Dhulipalla",
+            "te": "ధూళిపాళ్ల"
+          },
+          {
+            "name": "Medikonduru",
+            "te": "మేడికొండూరు"
+          }
+        ]
+      },
+      {
+        "name": "Vinukonda",
+        "te": "వినుకొండ",
+        "villages": [
+          {
+            "name": "Vinukonda Town",
+            "te": "వినుకొండ"
+          },
+          {
+            "name": "Bollapalli",
+            "te": "బొల్లాపల్లి"
+          },
+          {
+            "name": "Ipuru",
+            "te": "ఈపూరు"
+          }
+        ]
+      },
+      {
+        "name": "Macherla",
+        "te": "మాచర్ల",
+        "villages": [
+          {
+            "name": "Macherla",
+            "te": "మాచర్ల"
+          },
+          {
+            "name": "Durgi",
+            "te": "దుర్గి"
+          },
+          {
+            "name": "Karempudi",
+            "te": "కారెంపూడి"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "NTR (Vijayawada)",
+    "te": "ఎన్టీఆర్ (విజయవాడ)",
+    "code": "NTR",
+    "mandals": [
+      {
+        "name": "Vijayawada Urban & Rural",
+        "te": "విజయవాడ",
+        "villages": [
+          {
+            "name": "Gollapudi",
+            "te": "గొల్లపూడి"
+          },
+          {
+            "name": "Nunna",
+            "te": "నూన్న"
+          },
+          {
+            "name": "Payakapuram",
+            "te": "పాయకాపురం"
+          },
+          {
+            "name": "Enikepadu",
+            "te": "ఎనికేపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Mylavaram",
+        "te": "మైలవరం",
+        "villages": [
+          {
+            "name": "Mylavaram",
+            "te": "మైలవరం"
+          },
+          {
+            "name": "Chandragudem",
+            "te": "చంద్రగూడెం"
+          },
+          {
+            "name": "Pulluru",
+            "te": "పుల్లూరు"
+          }
+        ]
+      },
+      {
+        "name": "Nandigama",
+        "te": "నందిగామ",
+        "villages": [
+          {
+            "name": "Nandigama",
+            "te": "నందిగామ"
+          },
+          {
+            "name": "Ithavaram",
+            "te": "ఇతవరం"
+          },
+          {
+            "name": "Kanchikacherla",
+            "te": "కంచికచర్ల"
+          }
+        ]
+      },
+      {
+        "name": "Jaggayyapeta",
+        "te": "జగ్గయ్యపేట",
+        "villages": [
+          {
+            "name": "Jaggayyapeta",
+            "te": "జగ్గయ్యపేట"
+          },
+          {
+            "name": "Chillakallu",
+            "te": "చిల్లకల్లు"
+          },
+          {
+            "name": "Vedadri",
+            "te": "వేదాద్రి"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Krishna",
+    "te": "కృష్ణా (మచిలీపట్నం)",
+    "code": "KRI",
+    "mandals": [
+      {
+        "name": "Machilipatnam",
+        "te": "మచిలీపట్నం",
+        "villages": [
+          {
+            "name": "Machilipatnam Rural",
+            "te": "మచిలీపట్నం రూరల్"
+          },
+          {
+            "name": "Chinnapuram",
+            "te": "చిన్నాపురం"
+          },
+          {
+            "name": "Manginapudi",
+            "te": "మంగినపూడి"
+          }
+        ]
+      },
+      {
+        "name": "Gudivada",
+        "te": "గుడివాడ",
+        "villages": [
+          {
+            "name": "Gudivada Rural",
+            "te": "గుడివాడ రూరల్"
+          },
+          {
+            "name": "Billapadu",
+            "te": "బిళ్ళపాడు"
+          },
+          {
+            "name": "Mandapadu",
+            "te": "మండపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Vuyyuru",
+        "te": "వుయ్యూరు",
+        "villages": [
+          {
+            "name": "Vuyyuru",
+            "te": "వుయ్యూరు"
+          },
+          {
+            "name": "Katuru",
+            "te": "కాటూరు"
+          },
+          {
+            "name": "Mudurupadu",
+            "te": "ముదురుపాడు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Eluru",
+    "te": "ఏలూరు",
+    "code": "ELR",
+    "mandals": [
+      {
+        "name": "Eluru",
+        "te": "ఏలూరు",
+        "villages": [
+          {
+            "name": "Sanivarapupeta",
+            "te": "శనివారపుపేట"
+          },
+          {
+            "name": "Tangellamudi",
+            "te": "తంగెళ్ళమూడి"
+          },
+          {
+            "name": "Vatluru",
+            "te": "వట్లూరు"
+          }
+        ]
+      },
+      {
+        "name": "Nuzvid",
+        "te": "నూజివీడు",
+        "villages": [
+          {
+            "name": "Nuzvid Town",
+            "te": "నూజివీడు"
+          },
+          {
+            "name": "Annavaram",
+            "te": "అన్నవరం"
+          },
+          {
+            "name": "Hanuman Junction",
+            "te": "హనుమాన్ జంక్షన్"
+          }
+        ]
+      },
+      {
+        "name": "Jangareddigudem",
+        "te": "జంగారెడ్డిగూడెం",
+        "villages": [
+          {
+            "name": "Jangareddigudem",
+            "te": "జంగారెడ్డిగూడెం"
+          },
+          {
+            "name": "Pattiseema",
+            "te": "పట్టిసీమ"
+          },
+          {
+            "name": "Tadikalapudi",
+            "te": "తడికలపూడి"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "West Godavari",
+    "te": "పశ్చిమ గోదావరి (భీమవరం)",
+    "code": "WG",
+    "mandals": [
+      {
+        "name": "Bhimavaram",
+        "te": "భీమవరం",
+        "villages": [
+          {
+            "name": "Bhimavaram Rural",
+            "te": "భీమవరం రూరల్"
+          },
+          {
+            "name": "Chinna Amiram",
+            "te": "చిన్న అమిరం"
+          },
+          {
+            "name": "Pedda Amiram",
+            "te": "పెద్ద అమిరం"
+          },
+          {
+            "name": "Rayalam",
+            "te": "రాయలం"
+          }
+        ]
+      },
+      {
+        "name": "Tadepalligudem",
+        "te": "తాడేపల్లిగూడెం",
+        "villages": [
+          {
+            "name": "Tadepalligudem Rural",
+            "te": "తాడేపల్లిగూడెం రూరల్"
+          },
+          {
+            "name": "Kunchanapalli",
+            "te": "కుంచనపల్లి"
+          },
+          {
+            "name": "Pentapadu",
+            "te": "పెంటపాడు"
+          }
+        ]
+      },
+      {
+        "name": "Tanuku",
+        "te": "తణుకు",
+        "villages": [
+          {
+            "name": "Tanuku Rural",
+            "te": "తణుకు రూరల్"
+          },
+          {
+            "name": "Tetali",
+            "te": "తేతలి"
+          },
+          {
+            "name": "Undrajavaram",
+            "te": "ఉండ్రాజవరం"
+          }
+        ]
+      },
+      {
+        "name": "Palakollu & Narsapur",
+        "te": "పాలకొల్లు / నరసాపురం",
+        "villages": [
+          {
+            "name": "Palakollu",
+            "te": "పాలకొల్లు"
+          },
+          {
+            "name": "Narsapur",
+            "te": "నరసాపురం"
+          },
+          {
+            "name": "Perupalem",
+            "te": "పేరుపాలెం"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "East Godavari",
+    "te": "తూర్పు గోదావరి (రాజమండ్రి)",
+    "code": "EG",
+    "mandals": [
+      {
+        "name": "Rajahmundry Urban & Rural",
+        "te": "రాజమహేంద్రవరం",
+        "villages": [
+          {
+            "name": "Bommur",
+            "te": "బొమ్మూరు"
+          },
+          {
+            "name": "Hukumpeta",
+            "te": "హుకుంపేట"
+          },
+          {
+            "name": "Dowleswaram",
+            "te": "ధవళేశ్వరం"
+          },
+          {
+            "name": "Katheru",
+            "te": "కాతేరు"
+          }
+        ]
+      },
+      {
+        "name": "Kovvur",
+        "te": "కొవ్వూరు",
+        "villages": [
+          {
+            "name": "Kovvur Rural",
+            "te": "కొవ్వూరు రూరల్"
+          },
+          {
+            "name": "Arikirevula",
+            "te": "అరికిరేవుల"
+          },
+          {
+            "name": "Dommeru",
+            "te": "దొమ్మేరు"
+          }
+        ]
+      },
+      {
+        "name": "Nidadavole",
+        "te": "నిడదవోలు",
+        "villages": [
+          {
+            "name": "Nidadavole",
+            "te": "నిడదవోలు"
+          },
+          {
+            "name": "Samisragudem",
+            "te": "సమిస్రగూడెం"
+          },
+          {
+            "name": "Vipparru",
+            "te": "విప్పర్రు"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Kakinada",
+    "te": "కాకినాడ",
+    "code": "KKD",
+    "mandals": [
+      {
+        "name": "Kakinada",
+        "te": "కాకినాడ",
+        "villages": [
+          {
+            "name": "Kakinada Rural",
+            "te": "కాకినాడ రూరల్"
+          },
+          {
+            "name": "Madhavapatnam",
+            "te": "మాధవపట్నం"
+          },
+          {
+            "name": "Sarpavaram",
+            "te": "సర్పవరం"
+          },
+          {
+            "name": "Vakalapudi",
+            "te": "వాకలపూడి"
+          }
+        ]
+      },
+      {
+        "name": "Pithapuram",
+        "te": "పిఠాపురం",
+        "villages": [
+          {
+            "name": "Pithapuram Town",
+            "te": "పిఠాపురం"
+          },
+          {
+            "name": "Gollaprolu",
+            "te": "గొల్లప్రోలు"
+          },
+          {
+            "name": "Kandregula",
+            "te": "కండ్రేగుల"
+          }
+        ]
+      },
+      {
+        "name": "Samalkota",
+        "te": "సామర్లకోట",
+        "villages": [
+          {
+            "name": "Samalkota Rural",
+            "te": "సామర్లకోట రూరల్"
+          },
+          {
+            "name": "Navara",
+            "te": "నవర"
+          },
+          {
+            "name": "Unduru",
+            "te": "ఉండూరు"
+          }
+        ]
+      },
+      {
+        "name": "Tuni",
+        "te": "తుని",
+        "villages": [
+          {
+            "name": "Tuni Rural",
+            "te": "తుని రూరల్"
+          },
+          {
+            "name": "Hamsavaram",
+            "te": "హంసవరం"
+          },
+          {
+            "name": "Payakaraopeta Border",
+            "te": "పాయకరావుపేట"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Dr. B.R. Ambedkar Konaseema",
+    "te": "డా. బి.ఆర్. అంబేద్కర్ కోనసీమ",
+    "code": "KNS",
+    "mandals": [
+      {
+        "name": "Amalapuram",
+        "te": "అమలాపురం",
+        "villages": [
+          {
+            "name": "Amalapuram Rural",
+            "te": "అమలాపురం రూరల్"
+          },
+          {
+            "name": "Allavaram",
+            "te": "అల్లవరం"
+          },
+          {
+            "name": "Bhatnavilli",
+            "te": "భట్నవిల్లి"
+          },
+          {
+            "name": "Peruru",
+            "te": "పేరూరు"
+          }
+        ]
+      },
+      {
+        "name": "Ravulapalem",
+        "te": "రావులపాలెం",
+        "villages": [
+          {
+            "name": "Ravulapalem",
+            "te": "రావులపాలెం"
+          },
+          {
+            "name": "Gopalapuram",
+            "te": "గోపాలపురం"
+          },
+          {
+            "name": "Komaripalem",
+            "te": "కొమరిపాలెం"
+          },
+          {
+            "name": "Ubalanka",
+            "te": "ఉబలంక"
+          }
+        ]
+      },
+      {
+        "name": "Razole",
+        "te": "రాజోలు",
+        "villages": [
+          {
+            "name": "Razole",
+            "te": "రాజోలు"
+          },
+          {
+            "name": "Malikipuram",
+            "te": "మలికిపురం"
+          },
+          {
+            "name": "Sakhinetipalli",
+            "te": "సఖినేటిపల్లి"
+          },
+          {
+            "name": "Tatipaka",
+            "te": "తాటిపాక"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Visakhapatnam",
+    "te": "విశాఖపట్నం",
+    "code": "VSP",
+    "mandals": [
+      {
+        "name": "Visakhapatnam Urban & Rural",
+        "te": "విశాఖపట్నం",
+        "villages": [
+          {
+            "name": "Madhurawada",
+            "te": "మధురవాడ"
+          },
+          {
+            "name": "Gajuwaka",
+            "te": "గాజువాక"
+          },
+          {
+            "name": "Pendurthi",
+            "te": "పెందుర్తి"
+          },
+          {
+            "name": "Bheemunipatnam (Bheemili)",
+            "te": "భీమునిపట్నం"
+          },
+          {
+            "name": "Anandapuram",
+            "te": "ఆనందపురం"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Anakapalli",
+    "te": "అనకాపల్లి",
+    "code": "AKP",
+    "mandals": [
+      {
+        "name": "Anakapalli",
+        "te": "అనకాపల్లి",
+        "villages": [
+          {
+            "name": "Anakapalli Rural",
+            "te": "అనకాపల్లి రూరల్"
+          },
+          {
+            "name": "Kasimkota",
+            "te": "కాశీంకోట"
+          },
+          {
+            "name": "Munagapaka",
+            "te": "మునగపాక"
+          },
+          {
+            "name": "Sankaram",
+            "te": "శంకరం"
+          }
+        ]
+      },
+      {
+        "name": "Elamanchili",
+        "te": "ఎలమంచిలి",
+        "villages": [
+          {
+            "name": "Elamanchili",
+            "te": "ఎలమంచిలి"
+          },
+          {
+            "name": "Atchutapuram",
+            "te": "అచ్యుతాపురం"
+          },
+          {
+            "name": "Rambilli",
+            "te": "రాంబిల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Narsipatnam",
+        "te": "నర్సీపట్నం",
+        "villages": [
+          {
+            "name": "Narsipatnam",
+            "te": "నర్సీపట్నం"
+          },
+          {
+            "name": "Golugonda",
+            "te": "గొలుగొండ"
+          },
+          {
+            "name": "Rolugunta",
+            "te": "రోలుగుంట"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Vizianagaram",
+    "te": "విజయనగరం",
+    "code": "VZM",
+    "mandals": [
+      {
+        "name": "Vizianagaram",
+        "te": "విజయనగరం",
+        "villages": [
+          {
+            "name": "Vizianagaram Rural",
+            "te": "విజయనగరం రూరల్"
+          },
+          {
+            "name": "Dharmapuri",
+            "te": "ధర్మపురి"
+          },
+          {
+            "name": "Jonnada",
+            "te": "జొన్నాడ"
+          },
+          {
+            "name": "Kothavalasa",
+            "te": "కొత్తవలస"
+          }
+        ]
+      },
+      {
+        "name": "Bobbili",
+        "te": "బొబ్బిలి",
+        "villages": [
+          {
+            "name": "Bobbili Rural",
+            "te": "బొబ్బిలి రూరల్"
+          },
+          {
+            "name": "Badangi",
+            "te": "బాడంగి"
+          },
+          {
+            "name": "Therlam",
+            "te": "తెర్లాం"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Srikakulam",
+    "te": "శ్రీకాకుళం",
+    "code": "SKL",
+    "mandals": [
+      {
+        "name": "Srikakulam",
+        "te": "శ్రీకాకుళం",
+        "villages": [
+          {
+            "name": "Srikakulam Rural",
+            "te": "శ్రీకాకుళం రూరల్"
+          },
+          {
+            "name": "Arasavalli",
+            "te": "అరసవల్లి"
+          },
+          {
+            "name": "Gara",
+            "te": "గార"
+          },
+          {
+            "name": "Kalingapatnam",
+            "te": "కళింగపట్నం"
+          }
+        ]
+      },
+      {
+        "name": "Amadalavalasa",
+        "te": "ఆమదాలవలస",
+        "villages": [
+          {
+            "name": "Amadalavalasa",
+            "te": "ఆమదాలవలస"
+          },
+          {
+            "name": "Ponduru Khadi",
+            "te": "పొందూరు"
+          },
+          {
+            "name": "Sarubujjili",
+            "te": "సరుబుజ్జిలి"
+          }
+        ]
+      },
+      {
+        "name": "Palasa",
+        "te": "పలాస (కాశీబుగ్గ)",
+        "villages": [
+          {
+            "name": "Palasa Town",
+            "te": "పలాస"
+          },
+          {
+            "name": "Kasibugga",
+            "te": "కాశీబుగ్గ"
+          },
+          {
+            "name": "Baruva",
+            "te": "బారువ"
+          },
+          {
+            "name": "Sompeta",
+            "te": "సోంపేట"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Alluri Sitharama Raju",
+    "te": "అల్లూరి సీతారామరాజు",
+    "code": "ASR",
+    "mandals": [
+      {
+        "name": "Paderu & Araku Valley",
+        "te": "పాడేరు / అరకు",
+        "villages": [
+          {
+            "name": "Paderu",
+            "te": "పాడేరు"
+          },
+          {
+            "name": "Araku Valley",
+            "te": "అరకు వ్యాలీ"
+          },
+          {
+            "name": "Ananthagiri",
+            "te": "అనంతగిరి"
+          },
+          {
+            "name": "Chintapalle",
+            "te": "చింతపల్లి"
+          }
+        ]
+      },
+      {
+        "name": "Rampachodavaram",
+        "te": "రంపచోడవరం",
+        "villages": [
+          {
+            "name": "Rampachodavaram",
+            "te": "రంపచోడవరం"
+          },
+          {
+            "name": "Maredumilli",
+            "te": "మారేడుమిల్లి"
+          },
+          {
+            "name": "Addateegala",
+            "te": "అడ్డతీగల"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Parvathipuram Manyam",
+    "te": "పార్వతీపురం మన్యం",
+    "code": "PVM",
+    "mandals": [
+      {
+        "name": "Parvathipuram",
+        "te": "పార్వతీపురం",
+        "villages": [
+          {
+            "name": "Parvathipuram Rural",
+            "te": "పార్వతీపురం రూరల్"
+          },
+          {
+            "name": "Balijipeta",
+            "te": "బలిజిపేట"
+          },
+          {
+            "name": "Seethanagaram",
+            "te": "సీతానగరం"
+          }
+        ]
+      },
+      {
+        "name": "Salur",
+        "te": "సాలూరు",
+        "villages": [
+          {
+            "name": "Salur Town",
+            "te": "సాలూరు"
+          },
+          {
+            "name": "Makkuva",
+            "te": "మక్కువ"
+          },
+          {
+            "name": "Pachipenta",
+            "te": "పాచిపెంట"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile in SanthaLO marketplace",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "district": { "type": "string" },
+        "mandal": { "type": "string" },
+        "village": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "role": { "type": "string", "enum": ["seller", "buyer", "both"] },
+        "isAdmin": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id"]
+    },
+    "Listing": {
+      "title": "Listing",
+      "description": "Agricultural crop, livestock, or machinery ad listing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "subcategory": { "type": "string" },
+        "price": { "type": "number" },
+        "priceUnit": { "type": "string" },
+        "negotiable": { "type": "boolean" },
+        "quantity": { "type": "string" },
+        "quantityUnit": { "type": "string" },
+        "description": { "type": "string" },
+        "district": { "type": "string" },
+        "mandal": { "type": "string" },
+        "village": { "type": "string" },
+        "images": { "type": "array" },
+        "sellerId": { "type": "string" },
+        "sellerName": { "type": "string" },
+        "sellerPhone": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "sold", "expired"] },
+        "featured": { "type": "boolean" },
+        "views": { "type": "number" },
+        "contactsCount": { "type": "number" }
+      },
+      "required": ["id", "title", "price", "sellerId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile document indexed by Firebase Auth UID"
+    },
+    "/listings/{listingId}": {
+      "schema": "Listing",
+      "description": "Marketplace ad listings across Andhra Pradesh"
+    }
+  }
+}
