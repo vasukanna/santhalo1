@@ -212,12 +212,18 @@ export const HomeScreen: React.FC = () => {
       <div className="max-w-6xl mx-auto px-3 sm:px-4 mt-1">
         <div className="relative rounded-2xl overflow-hidden shadow-sm border border-emerald-900/10 bg-linear-to-r from-emerald-900 via-emerald-800 to-green-900">
           <img
-            src="/assets/santha_banner_full.png"
-            srcSet="/assets/santha_banner_full.png 865w, /assets/santha_banner_retina.png 1730w"
+            src="/assets/santha_banner_ultra_hd.png"
+            srcSet="/assets/santha_banner_ultra_hd.png 1730w, /assets/santha_banner_full.png 865w"
             sizes="(max-width: 768px) 100vw, 1200px"
             alt="SanthaLO Agricultural Marketplace Banner"
-            className="w-full h-auto object-cover max-h-[175px] sm:max-h-[220px] md:max-h-[260px]"
+            className="w-full h-auto object-cover max-h-[175px] sm:max-h-[220px] md:max-h-[260px] block"
             loading="eager"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src.indexOf('santha_banner_ultra_hd.png') !== -1) {
+                target.src = '/assets/santha_banner_full.png';
+              }
+            }}
           />
         </div>
       </div>
