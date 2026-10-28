@@ -70,7 +70,12 @@ export const ListingDetailScreen: React.FC = () => {
   const handleCall = () => {
     incrementContactCount(selectedListing.id, 'call');
     if (selectedListing.sellerPhone) {
-      window.location.href = `tel:${selectedListing.sellerPhone}`;
+      const cleanPhone = selectedListing.sellerPhone.replace(/[^\d+]/g, '');
+      if (cleanPhone) {
+        window.location.href = `tel:${cleanPhone}`;
+      } else {
+        showToast(lang === 'te' ? 'చెల్లుబాటు అయ్యే ఫోన్ నంబర్ లేదు' : 'Valid phone number not found');
+      }
     } else {
       showToast(lang === 'te' ? 'ఫోన్ నంబర్ లభించలేదు' : 'Phone not available');
     }
@@ -79,14 +84,21 @@ export const ListingDetailScreen: React.FC = () => {
   const handleWhatsApp = () => {
     incrementContactCount(selectedListing.id, 'whatsapp');
     if (selectedListing.sellerPhone) {
-      const clean = selectedListing.sellerPhone.replace(/\D/g, '');
+      let clean = selectedListing.sellerPhone.replace(/\D/g, '');
+      if (clean.startsWith('0') && clean.length === 11) {
+        clean = clean.slice(1);
+      }
       const phone = clean.length === 10 ? `91${clean}` : clean;
       const msg = lang === 'te'
-        ? `నమస్తే ${selectedListing.sellerName || 'రైతు మిత్రమా'}, నేను మీ సంతకార్ట్ ప్రకటన "${selectedListing.title}" చూశాను. వివరాలు మాట్లాడటానికి సంప్రదిస్తున్నాను.`
-        : `Hello ${selectedListing.sellerName || 'Seller'}, I am interested in your SanthaKart listing "${selectedListing.title}". Let's discuss.`;
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        ? `నమస్తే ${selectedListing.sellerName || 'రైతు మిత్రమా'}, నేను SanthaLO లో మీ ప్రకటన "${selectedListing.title}" చూశాను. వివరాలు మాట్లాడటానికి సంప్రదిస్తున్నాను.`
+        : `Hello ${selectedListing.sellerName || 'Seller'}, I am interested in your SanthaLO listing "${selectedListing.title}". Let's discuss details.`;
+      const targetUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      const win = window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = targetUrl;
+      }
     } else {
-      showToast(lang === 'te' ? 'వాట్సాప్ లభించలేదు' : 'WhatsApp not available');
+      showToast(lang === 'te' ? 'వాట్సాప్ నంబర్ లభించలేదు' : 'WhatsApp number not available');
     }
   };
 

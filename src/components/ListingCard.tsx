@@ -98,7 +98,7 @@ export const ListingCard: React.FC<ListingCardProps> = ({ listing, onClick }) =>
           )}
         </div>
 
-        {/* Quick Contact & Chat Buttons */}
+        {/* Quick Contact & WhatsApp Buttons */}
         <div className="flex items-center gap-1.5 mt-2 pt-1.5 border-t border-stone-100">
           <button
             type="button"
@@ -106,13 +106,18 @@ export const ListingCard: React.FC<ListingCardProps> = ({ listing, onClick }) =>
               e.stopPropagation();
               incrementContactCount(listing.id, 'call');
               if (listing.sellerPhone) {
-                window.location.href = `tel:${listing.sellerPhone}`;
+                const cleanPhone = listing.sellerPhone.replace(/[^\d+]/g, '');
+                if (cleanPhone) {
+                  window.location.href = `tel:${cleanPhone}`;
+                } else {
+                  onClick();
+                }
               } else {
                 onClick();
               }
             }}
             className="flex-1 py-1.5 px-2 bg-orange-600 hover:bg-orange-700 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 shadow-2xs transition-all cursor-pointer"
-            title="Call Farmer Directly"
+            title={lang === 'te' ? 'రైతుకు నేరుగా కాల్ చేయండి' : 'Call Farmer Directly'}
           >
             <Phone className="w-3 h-3 fill-white" />
             <span>{lang === 'te' ? 'కాల్' : 'Call'}</span>
@@ -122,23 +127,30 @@ export const ListingCard: React.FC<ListingCardProps> = ({ listing, onClick }) =>
             type="button"
             onClick={(e) => {
               e.stopPropagation();
-              incrementContactCount(listing.id, 'chat');
+              incrementContactCount(listing.id, 'whatsapp');
               if (listing.sellerPhone) {
-                const clean = listing.sellerPhone.replace(/\D/g, '');
+                let clean = listing.sellerPhone.replace(/\D/g, '');
+                if (clean.startsWith('0') && clean.length === 11) {
+                  clean = clean.slice(1);
+                }
                 const phone = clean.length === 10 ? `91${clean}` : clean;
                 const msg = lang === 'te'
-                  ? `నమస్తే, నేను మీ సంతకార్ట్ ప్రకటన "${listing.title}" చూశాను.`
-                  : `Hello, I am interested in your SanthaKart listing "${listing.title}".`;
-                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+                  ? `నమస్తే, నేను SanthaLO లో మీ ప్రకటన "${listing.title}" చూశాను.`
+                  : `Hello, I am interested in your SanthaLO listing "${listing.title}".`;
+                const targetUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+                const win = window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                if (!win || win.closed || typeof win.closed === 'undefined') {
+                  window.location.href = targetUrl;
+                }
               } else {
                 onClick();
               }
             }}
             className="flex-1 py-1.5 px-2 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 shadow-2xs transition-all cursor-pointer"
-            title="Chat / WhatsApp"
+            title={lang === 'te' ? 'వాట్సాప్‌లో మాట్లాడండి' : 'Chat on WhatsApp'}
           >
             <MessageCircle className="w-3 h-3" />
-            <span>{lang === 'te' ? 'చాట్' : 'Chat'}</span>
+            <span>{lang === 'te' ? 'వాట్సాప్' : 'WhatsApp'}</span>
           </button>
         </div>
       </div>
