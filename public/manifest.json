@@ -1,0 +1,28 @@
+{
+  "name": "Mana Santha",
+  "short_name": "Santha",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#F26A1B",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { getMandalsForDistrict } from '../data/locationService';
 import { ListingCard } from '../components/ListingCard';
 import { CategoryIcon } from '../components/CategoryIcon';
 import { HomeHeroBanner } from '../components/HomeHeroBanner';
+import { PWAInstallBanner } from '../components/PWAInstallBanner';
 import {
   Search,
   SlidersHorizontal,
@@ -442,6 +443,9 @@ export const HomeScreen: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* PWA Install Bottom Banner (shown when eligible) */}
+      <PWAInstallBanner />
     </div>
   );
 };

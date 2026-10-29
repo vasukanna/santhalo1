@@ -9,10 +9,21 @@
     <meta property="og:title" content="SanthaLO - రైతు బజార్ & అగ్రికల్చరల్ మార్కెట్‌ప్లేస్" />
     <meta property="og:description" content="Buy and sell paddy, rice, fruits, vegetables, aqua, livestock, and farm machinery directly across Andhra Pradesh." />
     <meta property="og:image" content="/assets/santha_banner_full.png" />
-    <meta name="theme-color" content="#146338" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <meta name="theme-color" content="#F26A1B" />
   </head>
   <body class="bg-gray-50 text-gray-900 antialiased selection:bg-emerald-100 selection:text-emerald-900 min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function (err) {
+            console.log('SW registration notice:', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

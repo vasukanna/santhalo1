@@ -60,10 +60,14 @@ export const ProfileScreen: React.FC = () => {
     createListing
   } = useApp();
 
-  // Active subtab: 'seller' | 'buyer' | 'admin' | 'edit'
-  const [activeTabName, setActiveTabName] = useState<'seller' | 'buyer' | 'admin' | 'edit'>(
-    isAdmin ? 'seller' : 'seller'
-  );
+  const [activeTabName, setActiveTabName] = useState<'seller' | 'buyer' | 'admin' | 'edit'>('seller');
+
+  // Ensure unauthorized users cannot access admin subtab
+  useEffect(() => {
+    if (activeTabName === 'admin' && !isAdmin) {
+      setActiveTabName('seller');
+    }
+  }, [activeTabName, isAdmin]);
 
   // Admin preview mode (toggle to see what a regular farmer sees)
   const [previewAsUser, setPreviewAsUser] = useState<boolean>(false);
@@ -200,7 +204,7 @@ export const ProfileScreen: React.FC = () => {
         mandal,
         village: village.trim(),
         role,
-        isAdmin: true
+        isAdmin: isAdmin
       };
 
       const success = await saveUserProfile(updatedProfile);

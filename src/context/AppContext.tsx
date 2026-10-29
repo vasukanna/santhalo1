@@ -22,14 +22,14 @@ interface Toast {
 }
 
 export const ADMIN_EMAILS: string[] = [
-  'vasu.kannaluri@gmail.com',
-  'naren.papanaboina@gmail.com'
+  'naren.papanaboina@gmail.com',
+  'vasu.kannaluri@gmail.com'
 ];
 
 export const isEmailAdmin = (email?: string | null): boolean => {
   if (!email) return false;
   const clean = email.toLowerCase().trim();
-  return ADMIN_EMAILS.some(a => a.toLowerCase() === clean);
+  return ADMIN_EMAILS.includes(clean);
 };
 
 interface AppContextType {
@@ -221,16 +221,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   });
   const DEFAULT_USER_PROFILE: UserProfile = {
-    id: 'user_vasu_1',
-    displayName: 'vasu kannaluri',
-    name: 'vasu kannaluri',
-    email: 'vasu.kannaluri@gmail.com',
-    phone: '9848012345',
+    id: 'user_guest',
+    displayName: 'రైతు మిత్రుడు',
+    name: 'రైతు మిత్రుడు',
+    email: '',
+    phone: '',
     district: 'Nellore (SPSR Nellore)',
     mandal: 'Kavali',
     village: 'Kavali Town',
     role: 'both',
-    isAdmin: true,
+    isAdmin: false,
     createdAt: 1713225600000
   };
 
@@ -239,23 +239,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const saved = localStorage.getItem('santhalo_user_profile');
       if (saved) {
         const parsed = JSON.parse(saved);
-        const emailToCheck = parsed.email || DEFAULT_USER_PROFILE.email;
-        const isAdminAccount = isEmailAdmin(emailToCheck) || parsed.isAdmin === true;
-        return {
+        const emailToCheck = (parsed.email || '').toLowerCase().trim();
+        const isAdminAccount = isEmailAdmin(emailToCheck);
+        const sanitized: UserProfile = {
           ...DEFAULT_USER_PROFILE,
           ...parsed,
-          displayName: parsed.displayName && !parsed.displayName.includes('రైతు మిత్రుడు') ? parsed.displayName : DEFAULT_USER_PROFILE.displayName,
-          name: parsed.name && !parsed.name.includes('రైతు మిత్రుడు') ? parsed.name : DEFAULT_USER_PROFILE.name,
-          email: emailToCheck,
-          district: parsed.district || DEFAULT_USER_PROFILE.district,
-          mandal: parsed.mandal || DEFAULT_USER_PROFILE.mandal,
-          role: parsed.role || 'both',
+          email: parsed.email || '',
           isAdmin: isAdminAccount
         };
+        // Reset cached accounts in localStorage so only the two authorized emails keep admin
+        if (parsed.isAdmin !== isAdminAccount) {
+          localStorage.setItem('santhalo_user_profile', JSON.stringify(sanitized));
+        }
+        return sanitized;
       }
-      return DEFAULT_USER_PROFILE;
+      return null;
     } catch {
-      return DEFAULT_USER_PROFILE;
+      return null;
     }
   });
 
@@ -355,13 +355,29 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         };
         setCurrentUser(appUser);
 
+        const userEmail = (user.email || '').toLowerCase().trim();
+        const isAdminAccount = isEmailAdmin(userEmail);
+
         try {
           const userDocRef = doc(db, 'users', user.uid);
           const snap = await getDoc(userDocRef);
           if (snap.exists()) {
             const data = snap.data() as UserProfile;
-            setUserProfile(data);
-            localStorage.setItem('santhalo_user_profile', JSON.stringify(data));
+            const corrected: UserProfile = {
+              ...data,
+              email: user.email || data.email,
+              isAdmin: isAdminAccount
+            };
+            // Reset existing account in database if non-admin email previously had admin
+            if (data.isAdmin && !isAdminAccount) {
+              try {
+                await setDoc(userDocRef, { isAdmin: false }, { merge: true });
+              } catch {
+                // safe fallback
+              }
+            }
+            setUserProfile(corrected);
+            localStorage.setItem('santhalo_user_profile', JSON.stringify(corrected));
           } else {
             const initialProfile: UserProfile = {
               id: user.uid,
@@ -373,6 +389,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
               mandal: 'Sangam',
               village: 'Chennavarappadu',
               avatarUrl: user.photoURL || undefined,
+              role: 'both',
+              isAdmin: isAdminAccount,
               createdAt: Date.now()
             };
             await setDoc(userDocRef, initialProfile);
@@ -430,19 +448,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Save / Update User Profile
   const saveUserProfile = async (data: Partial<UserProfile>): Promise<boolean> => {
     try {
-      const targetId = currentUser?.uid || userProfile?.id || 'user_vasu_1';
-      const nameVal = data.displayName || data.name || userProfile?.displayName || userProfile?.name || 'vasu kannaluri';
+      const targetId = currentUser?.uid || userProfile?.id || 'user_guest';
+      const nameVal = data.displayName || data.name || userProfile?.displayName || userProfile?.name || 'రైతు మిత్రుడు';
+      const emailVal = (data.email !== undefined ? data.email : (currentUser?.email || userProfile?.email || '')).toLowerCase().trim();
+      const isAdminAccount = isEmailAdmin(emailVal);
       const updated: UserProfile = {
         id: targetId,
         displayName: nameVal,
         name: nameVal,
-        phone: data.phone !== undefined ? data.phone : (userProfile?.phone || '9848012345'),
-        email: data.email !== undefined ? data.email : (userProfile?.email || 'vasu.kannaluri@gmail.com'),
+        phone: data.phone !== undefined ? data.phone : (userProfile?.phone || ''),
+        email: emailVal,
         district: data.district || userProfile?.district || 'Nellore (SPSR Nellore)',
         mandal: data.mandal || userProfile?.mandal || 'Kavali',
         village: data.village !== undefined ? data.village : (userProfile?.village || 'Kavali Town'),
         role: data.role || userProfile?.role || 'both',
-        isAdmin: data.isAdmin !== undefined ? data.isAdmin : (userProfile?.isAdmin ?? true),
+        isAdmin: isAdminAccount,
         avatarUrl: data.avatarUrl || userProfile?.avatarUrl,
         updatedAt: Date.now()
       };
@@ -776,20 +796,68 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [lang]);
 
 
-  // Admin Check - Grants full admin powers to vasu.kannaluri@gmail.com and naren.papanaboina@gmail.com
+  // Admin Check - Grants full admin powers STRICTLY to naren.papanaboina@gmail.com and vasu.kannaluri@gmail.com
   const isAdmin = useMemo(() => {
-    const currentEmail = (currentUser?.email || userProfile?.email || '').toLowerCase().trim();
-    if (isEmailAdmin(currentEmail)) {
-      return true;
+    const verifiedEmail = (currentUser?.email || userProfile?.email || '').toLowerCase().trim();
+    return isEmailAdmin(verifiedEmail);
+  }, [currentUser, userProfile]);
+
+  // Reset any cached accounts in localStorage so only the two authorized emails keep admin
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('santhalo_user_profile');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const email = (parsed.email || '').toLowerCase().trim();
+        const shouldBeAdmin = isEmailAdmin(email);
+        if (parsed.isAdmin && !shouldBeAdmin) {
+          parsed.isAdmin = false;
+          localStorage.setItem('santhalo_user_profile', JSON.stringify(parsed));
+          if (userProfile && userProfile.isAdmin && !isEmailAdmin(userProfile.email)) {
+            setUserProfile(prev => prev ? { ...prev, isAdmin: false } : null);
+          }
+        }
+      }
+    } catch {
+      // safe fallback
     }
-    return Boolean(
-      userProfile?.isAdmin ||
-      userProfile?.email?.toLowerCase().includes('vasu.kannaluri') ||
-      userProfile?.email?.toLowerCase().includes('naren.papanaboina') ||
-      currentUser?.email?.toLowerCase().includes('vasu.kannaluri') ||
-      currentUser?.email?.toLowerCase().includes('naren.papanaboina')
-    );
-  }, [userProfile, currentUser]);
+  }, [userProfile]);
+
+  // Hide admin options from normal users and redirect them to the home page if they open an admin URL directly
+  useEffect(() => {
+    const checkAdminAccess = () => {
+      const params = new URLSearchParams(window.location.search);
+      const hash = window.location.hash.toLowerCase();
+      const pathname = window.location.pathname.toLowerCase();
+
+      const requestedAdmin =
+        params.get('tab') === 'admin' ||
+        params.get('screen') === 'admin' ||
+        hash.includes('admin') ||
+        pathname.includes('/admin') ||
+        activeTab === 'admin';
+
+      if (requestedAdmin && !isAdmin) {
+        setActiveTab('home');
+        if (
+          params.get('tab') === 'admin' ||
+          params.get('screen') === 'admin' ||
+          hash.includes('admin') ||
+          pathname.includes('/admin')
+        ) {
+          window.history.replaceState(null, '', '/');
+        }
+      }
+    };
+
+    checkAdminAccess();
+    window.addEventListener('popstate', checkAdminAccess);
+    window.addEventListener('hashchange', checkAdminAccess);
+    return () => {
+      window.removeEventListener('popstate', checkAdminAccess);
+      window.removeEventListener('hashchange', checkAdminAccess);
+    };
+  }, [isAdmin, activeTab]);
 
   // Admin / Seller Delete Listing
   const deleteListing = async (id: string): Promise<boolean> => {
