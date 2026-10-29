@@ -80,23 +80,9 @@ export const ProfileScreen: React.FC = () => {
     const p = userProfile?.phone || '';
     return (p === '9848012345' || p === '9848098765') ? '' : p;
   });
-  const [district, setDistrict] = useState<string>(() => {
-    const d = userProfile?.district || '';
-    const m = userProfile?.mandal || '';
-    if (d === 'Nellore (SPSR Nellore)' && (m === 'Kavali' || m === 'Sangam')) return '';
-    return d;
-  });
-  const [mandal, setMandal] = useState<string>(() => {
-    const d = userProfile?.district || '';
-    const m = userProfile?.mandal || '';
-    if (d === 'Nellore (SPSR Nellore)' && (m === 'Kavali' || m === 'Sangam')) return '';
-    return m;
-  });
-  const [village, setVillage] = useState<string>(() => {
-    const v = userProfile?.village || '';
-    if (v === 'Kavali Town' || v === 'Chennavarappadu') return '';
-    return v;
-  });
+  const [district, setDistrict] = useState<string>(() => userProfile?.district || '');
+  const [mandal, setMandal] = useState<string>(() => userProfile?.mandal || '');
+  const [village, setVillage] = useState<string>(() => userProfile?.village || '');
   const [role, setRole] = useState<'seller' | 'buyer' | 'both'>(userProfile?.role || 'both');
 
   const [saving, setSaving] = useState<boolean>(false);
@@ -133,16 +119,9 @@ export const ProfileScreen: React.FC = () => {
       if (userProfile.email) setEmail(userProfile.email);
       const cleanPhone = (userProfile.phone === '9848012345' || userProfile.phone === '9848098765') ? '' : (userProfile.phone || '');
       setPhone(cleanPhone);
-
-      const isSampleLoc =
-        userProfile.district === 'Nellore (SPSR Nellore)' &&
-        (userProfile.mandal === 'Kavali' || userProfile.mandal === 'Sangam');
-      const cleanDistrict = isSampleLoc ? '' : (userProfile.district || '');
-      const cleanMandal = isSampleLoc ? '' : (userProfile.mandal || '');
-      const cleanVillage = (userProfile.village === 'Kavali Town' || userProfile.village === 'Chennavarappadu') ? '' : (userProfile.village || '');
-      setDistrict(cleanDistrict);
-      setMandal(cleanMandal);
-      setVillage(cleanVillage);
+      setDistrict(userProfile.district || '');
+      setMandal(userProfile.mandal || '');
+      setVillage(userProfile.village || '');
       if (userProfile.role) setRole(userProfile.role);
     }
   }, [userProfile]);
@@ -157,11 +136,34 @@ export const ProfileScreen: React.FC = () => {
     return (district && mandal) ? getVillagesForMandal(district, mandal) : [];
   }, [district, mandal]);
 
-  // User's own listings
+  // Computed card location string
+  const cardLocation = useMemo(() => {
+    const v = (userProfile?.village !== undefined ? userProfile.village : village).trim();
+    const m = (userProfile?.mandal !== undefined ? userProfile.mandal : mandal).trim();
+    const d = (userProfile?.district !== undefined ? userProfile.district : district).trim();
+    const parts = [v, m, d].filter(Boolean);
+    if (parts.length > 0) return parts.join(', ');
+    if (userProfile?.location) return userProfile.location;
+    return '';
+  }, [userProfile, village, mandal, district]);
+
+  // User's own listings (matches across UID, sellerId, or sellerName)
   const currentUserId = currentUser?.uid || userProfile?.id || 'user_vasu_1';
   const myListings = useMemo(() => {
-    return listings.filter(l => l.sellerId === currentUserId || l.sellerName === displayName);
-  }, [listings, currentUserId, displayName]);
+    const userIds = new Set([currentUser?.uid, userProfile?.id, currentUserId].filter(Boolean) as string[]);
+    const userNames = new Set([
+      displayName,
+      currentUser?.displayName,
+      userProfile?.displayName,
+      userProfile?.name
+    ].filter(Boolean).map(n => n!.toLowerCase().trim()));
+
+    return listings.filter(l => {
+      if (l.sellerId && userIds.has(l.sellerId)) return true;
+      if (l.sellerName && userNames.has(l.sellerName.toLowerCase().trim())) return true;
+      return false;
+    });
+  }, [listings, currentUserId, currentUser?.uid, currentUser?.displayName, userProfile?.id, userProfile?.displayName, userProfile?.name, displayName]);
 
   // Metrics
   const activeAdsCount = myListings.length;
@@ -221,14 +223,19 @@ export const ProfileScreen: React.FC = () => {
 
     setSaving(true);
     try {
+      const trimmedVillage = village.trim();
+      const locationParts = [trimmedVillage, mandal, district].filter(Boolean);
+      const computedLocation = locationParts.join(', ');
+
       const updatedProfile = {
         displayName: displayName.trim(),
         name: displayName.trim(),
         email: email.trim(),
         phone: phone.trim(),
-        district,
-        mandal,
-        village: village.trim(),
+        district: district || '',
+        mandal: mandal || '',
+        village: trimmedVillage,
+        location: computedLocation,
         role,
         isAdmin: isAdmin
       };
@@ -412,8 +419,8 @@ export const ProfileScreen: React.FC = () => {
                 </p>
                 <p className="text-xs font-medium flex items-center gap-1 mt-1 text-stone-600">
                   <MapPin className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span className={(district || mandal) ? 'text-stone-700' : 'text-stone-400 italic'}>
-                    {(district || mandal) ? (mandal ? `${mandal}, ${district}` : district) : 'Add your location'}
+                  <span className={cardLocation ? 'text-stone-700 font-semibold' : 'text-stone-400 italic'}>
+                    {cardLocation || 'Add your location'}
                   </span>
                 </p>
               </div>

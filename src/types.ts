@@ -59,6 +59,7 @@ export interface UserProfile {
   district: string;
   mandal: string;
   village: string;
+  location?: string;
   avatarUrl?: string;
   role?: 'seller' | 'buyer' | 'both';
   isAdmin?: boolean;

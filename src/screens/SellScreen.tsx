@@ -195,34 +195,45 @@ export const SellScreen: React.FC = () => {
   const isLocationChosen = Boolean(district && mandal && (village !== 'Other village' || otherVillageText.trim()));
   const isPhotosUploaded = images.length > 0;
 
-  // Submit Listing with safe defaults
+  // Submit Listing with safe defaults and validation
   const handleFinalSubmit = async () => {
+    if (submitting) return;
+
     if (!title.trim()) {
-      showToast(lang === 'te' ? 'దయచేసి ప్రకటన శీర్షిక (Title) రాయండి.' : 'Please enter an ad title.');
+      showToast(lang === 'te' ? 'దయచేసి ప్రకటన శీర్షిక (Title) రాయండి.' : 'Please enter an ad title.', 'error');
       document.getElementById('card-details')?.scrollIntoView({ behavior: 'smooth' });
       return;
     }
     if (title.length > 60) {
-      showToast(lang === 'te' ? 'శీర్షిక 60 అక్షరాల కంటే తక్కువగా ఉండాలి.' : 'Title must be 60 characters or less.');
+      showToast(lang === 'te' ? 'శీర్షిక 60 అక్షరాల కంటే తక్కువగా ఉండాలి.' : 'Title must be 60 characters or less.', 'error');
+      document.getElementById('card-details')?.scrollIntoView({ behavior: 'smooth' });
       return;
     }
     if (!price || Number(price) <= 0) {
-      showToast(lang === 'te' ? 'దయచేసి సరైన ధర రాయండి.' : 'Please enter a valid price.');
+      showToast(lang === 'te' ? 'దయచేసి సరైన ధర రాయండి.' : 'Please enter a valid price.', 'error');
       document.getElementById('card-details')?.scrollIntoView({ behavior: 'smooth' });
       return;
     }
     if (!district || !mandal) {
-      showToast(lang === 'te' ? 'దయచేసి జిల్లా మరియు మండలం ఎంచుకోండి.' : 'Please select District and Mandal.');
+      showToast(lang === 'te' ? 'దయచేసి జిల్లా మరియు మండలం ఎంచుకోండి.' : 'Please select District and Mandal.', 'error');
       document.getElementById('card-location')?.scrollIntoView({ behavior: 'smooth' });
       return;
     }
-    const finalVillage = (village === 'Other village' ? otherVillageText.trim() : village) || mandal || district || 'Nellore';
+    const finalPhone = sellerPhone.trim() || userProfile?.phone || '';
+    if (!finalPhone) {
+      showToast(lang === 'te' ? 'దయచేసి ఫోన్ నంబర్‌ను నమోదు చేయండి.' : 'Please enter contact phone number.', 'error');
+      document.getElementById('card-media')?.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    const finalVillage = (village === 'Other village' ? otherVillageText.trim() : village) || '';
+    const locationParts = [finalVillage, mandal, district].filter(Boolean);
+    const computedLocation = locationParts.join(', ');
 
     setSubmitting(true);
     try {
       const sellerId = currentUser?.uid || userProfile?.id || 'user_vasu_1';
       const sellerName = currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri';
-      const sellerPhoneNum = sellerPhone.trim() || userProfile?.phone || '';
 
       const listingPayload = {
         title: title.trim(),
@@ -237,9 +248,11 @@ export const SellScreen: React.FC = () => {
         district: district || DEFAULT_DISTRICT_NAME,
         mandal: mandal || '',
         village: finalVillage,
+        sellerLocation: computedLocation,
         images: images.length > 0 ? images : ['/assets/santha_market_art.png'],
         video: videoUrl || '',
-        sellerPhone: sellerPhoneNum,
+        videoUrl: videoUrl || '',
+        sellerPhone: finalPhone,
         sellerName: sellerName,
         sellerId: sellerId,
         status: 'active' as const,
@@ -250,6 +263,14 @@ export const SellScreen: React.FC = () => {
       const res = await createListing(listingPayload);
       if (res && res.success) {
         showToast(lang === 'te' ? 'మీ ప్రకటన విజయవంతంగా పోస్ట్ చేయబడింది!' : 'Ad posted successfully!', 'success');
+        // Reset form fields
+        setTitle('');
+        setPrice('');
+        setDescription('');
+        setQuantity('');
+        setImages([]);
+        setVideoUrl('');
+        setVideoName('');
         setActiveTab('home');
       } else {
         showToast(lang === 'te' ? 'ప్రకటన పోస్టింగ్ విఫలమైంది.' : (res?.error || 'Failed to post ad.'), 'error');

@@ -250,21 +250,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           cleanPhone = '';
         }
 
-        // Clear sample default locations from saved data, but preserve real user entered location
+        // Preserve user entered location, phone, and optional location string
         let cleanDistrict = parsed.district || '';
         let cleanMandal = parsed.mandal || '';
         let cleanVillage = parsed.village || '';
-
-        const isSampleLocation =
-          cleanDistrict === 'Nellore (SPSR Nellore)' &&
-          (cleanMandal === 'Kavali' || cleanMandal === 'Sangam') &&
-          (cleanVillage === 'Kavali Town' || cleanVillage === 'Chennavarappadu' || !cleanVillage);
-
-        if (isSampleLocation) {
-          cleanDistrict = '';
-          cleanMandal = '';
-          cleanVillage = '';
-        }
+        let cleanLocation = parsed.location || [cleanVillage, cleanMandal, cleanDistrict].filter(Boolean).join(', ');
 
         const sanitized: UserProfile = {
           ...DEFAULT_USER_PROFILE,
@@ -274,6 +264,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           district: cleanDistrict,
           mandal: cleanMandal,
           village: cleanVillage,
+          location: cleanLocation,
           isAdmin: isAdminAccount
         };
 
@@ -406,16 +397,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             let cleanDistrict = data.district || '';
             let cleanMandal = data.mandal || '';
             let cleanVillage = data.village || '';
-            const isSampleLoc =
-              cleanDistrict === 'Nellore (SPSR Nellore)' &&
-              (cleanMandal === 'Kavali' || cleanMandal === 'Sangam') &&
-              (cleanVillage === 'Kavali Town' || cleanVillage === 'Chennavarappadu' || !cleanVillage);
-
-            if (isSampleLoc) {
-              cleanDistrict = '';
-              cleanMandal = '';
-              cleanVillage = '';
-            }
+            let cleanLocation = data.location || [cleanVillage, cleanMandal, cleanDistrict].filter(Boolean).join(', ');
 
             const corrected: UserProfile = {
               ...data,
@@ -423,6 +405,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
               district: cleanDistrict,
               mandal: cleanMandal,
               village: cleanVillage,
+              location: cleanLocation,
               email: user.email || data.email,
               isAdmin: isAdminAccount
             };
@@ -477,16 +460,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
                 let cleanDistrict = parsedProfile.district || '';
                 let cleanMandal = parsedProfile.mandal || '';
                 let cleanVillage = parsedProfile.village || '';
-                const isSampleLoc =
-                  cleanDistrict === 'Nellore (SPSR Nellore)' &&
-                  (cleanMandal === 'Kavali' || cleanMandal === 'Sangam') &&
-                  (cleanVillage === 'Kavali Town' || cleanVillage === 'Chennavarappadu' || !cleanVillage);
-
-                if (isSampleLoc) {
-                  cleanDistrict = '';
-                  cleanMandal = '';
-                  cleanVillage = '';
-                }
+                let cleanLocation = parsedProfile.location || [cleanVillage, cleanMandal, cleanDistrict].filter(Boolean).join(', ');
 
                 setUserProfile({
                   ...parsedProfile,
@@ -494,6 +468,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
                   district: cleanDistrict,
                   mandal: cleanMandal,
                   village: cleanVillage,
+                  location: cleanLocation,
                   isAdmin: isAdminAccount
                 });
               }
@@ -557,15 +532,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const nameVal = data.displayName || data.name || userProfile?.displayName || userProfile?.name || 'రైతు మిత్రుడు';
       const emailVal = (data.email !== undefined ? data.email : (currentUser?.email || userProfile?.email || '')).toLowerCase().trim();
       const isAdminAccount = isEmailAdmin(emailVal);
+      const districtVal = data.district !== undefined ? data.district : (userProfile?.district || '');
+      const mandalVal = data.mandal !== undefined ? data.mandal : (userProfile?.mandal || '');
+      const villageVal = data.village !== undefined ? data.village : (userProfile?.village || '');
+      const locationVal = data.location !== undefined
+        ? data.location
+        : ([villageVal, mandalVal, districtVal].filter(Boolean).join(', ') || userProfile?.location || '');
+
       const updated: UserProfile = {
         id: targetId,
         displayName: nameVal,
         name: nameVal,
         phone: data.phone !== undefined ? data.phone : (userProfile?.phone || ''),
         email: emailVal,
-        district: data.district !== undefined ? data.district : (userProfile?.district || ''),
-        mandal: data.mandal !== undefined ? data.mandal : (userProfile?.mandal || ''),
-        village: data.village !== undefined ? data.village : (userProfile?.village || ''),
+        district: districtVal,
+        mandal: mandalVal,
+        village: villageVal,
+        location: locationVal,
         role: data.role || userProfile?.role || 'both',
         isAdmin: isAdminAccount,
         avatarUrl: data.avatarUrl || userProfile?.avatarUrl,
@@ -616,13 +599,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         images: data.images && data.images.length > 0 ? data.images : ['/assets/santha_banner_full.png'],
         video: data.video || data.videoUrl,
         videoUrl: data.videoUrl || data.video,
-        sellerId: currentUser?.uid || userProfile?.id || 'user_vasu_1',
-        sellerName: currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri',
+        sellerId: data.sellerId || currentUser?.uid || userProfile?.id || 'user_vasu_1',
+        sellerName: data.sellerName || currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri',
         sellerPhone: data.sellerPhone || userProfile?.phone || '',
         sellerLocation: data.sellerLocation || (
-          (data.village || userProfile?.village || '')
-            ? `${data.village || userProfile?.village || ''}, ${data.mandal || userProfile?.mandal || ''}`
-            : (data.mandal || userProfile?.mandal || '')
+          [data.village || userProfile?.village, data.mandal || userProfile?.mandal, data.district || userProfile?.district].filter(Boolean).join(', ')
         ),
         createdAt: new Date().toISOString(),
         status: 'active',
@@ -684,26 +665,48 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setCurrentUser(appUser);
         localStorage.setItem('santhalo_auth_user', JSON.stringify(appUser));
 
+        let existingProfile: Partial<UserProfile> | null = null;
+        try {
+          const snap = await getDoc(doc(db, 'users', u.uid));
+          if (snap.exists()) {
+            existingProfile = snap.data() as UserProfile;
+          }
+        } catch {
+          // offline
+        }
+        if (!existingProfile) {
+          try {
+            const saved = localStorage.getItem('santhalo_user_profile');
+            if (saved) {
+              const parsed = JSON.parse(saved);
+              if (parsed && (parsed.id === u.uid || (parsed.email && u.email && parsed.email.toLowerCase() === u.email.toLowerCase()))) {
+                existingProfile = parsed;
+              }
+            }
+          } catch {
+            // safe fallback
+          }
+        }
+
+        const existingPhone = existingProfile?.phone || u.phoneNumber || (userProfile?.phone && userProfile.phone !== '9848012345' && userProfile.phone !== '9848098765' ? userProfile.phone : '') || '';
+        const existingDistrict = existingProfile?.district || userProfile?.district || '';
+        const existingMandal = existingProfile?.mandal || userProfile?.mandal || '';
+        const existingVillage = existingProfile?.village || userProfile?.village || '';
+        const existingLocation = existingProfile?.location || [existingVillage, existingMandal, existingDistrict].filter(Boolean).join(', ');
         const userIsAdmin = isEmailAdmin(u.email);
-        const existingPhone = (userProfile?.phone === '9848012345' || userProfile?.phone === '9848098765') ? '' : (userProfile?.phone || '');
-        const isSampleLoc =
-          userProfile?.district === 'Nellore (SPSR Nellore)' &&
-          (userProfile?.mandal === 'Kavali' || userProfile?.mandal === 'Sangam');
-        const existingDistrict = isSampleLoc ? '' : (userProfile?.district || '');
-        const existingMandal = isSampleLoc ? '' : (userProfile?.mandal || '');
-        const existingVillage = (userProfile?.village === 'Kavali Town' || userProfile?.village === 'Chennavarappadu') ? '' : (userProfile?.village || '');
 
         const updatedProfile: UserProfile = {
           id: u.uid,
           displayName: u.displayName || 'Farmer Member',
           name: u.displayName || 'Farmer Member',
-          phone: u.phoneNumber || existingPhone,
+          phone: existingPhone,
           email: u.email || '',
           district: existingDistrict,
           mandal: existingMandal,
           village: existingVillage,
+          location: existingLocation,
           avatarUrl: u.photoURL || undefined,
-          role: 'both',
+          role: existingProfile?.role || 'both',
           isAdmin: userIsAdmin,
           updatedAt: Date.now()
         };
@@ -758,20 +761,41 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       photo = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80';
     }
 
-    const existingPhone = (userProfile?.phone === '9848012345' || userProfile?.phone === '9848098765') ? '' : (userProfile?.phone || '');
-    const isSampleLoc =
-      userProfile?.district === 'Nellore (SPSR Nellore)' &&
-      (userProfile?.mandal === 'Kavali' || userProfile?.mandal === 'Sangam');
-    const existingDistrict = isSampleLoc ? '' : (userProfile?.district || '');
-    const existingMandal = isSampleLoc ? '' : (userProfile?.mandal || '');
-    const existingVillage = (userProfile?.village === 'Kavali Town' || userProfile?.village === 'Chennavarappadu') ? '' : (userProfile?.village || '');
+    let existingProfile: Partial<UserProfile> | null = null;
+    try {
+      const snap = await getDoc(doc(db, 'users', uid));
+      if (snap.exists()) {
+        existingProfile = snap.data() as UserProfile;
+      }
+    } catch {
+      // offline
+    }
+    if (!existingProfile) {
+      try {
+        const saved = localStorage.getItem('santhalo_user_profile');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && (parsed.id === uid || (parsed.email && parsed.email.toLowerCase() === email.toLowerCase()))) {
+            existingProfile = parsed;
+          }
+        }
+      } catch {
+        // safe fallback
+      }
+    }
+
+    const cleanPhone = existingProfile?.phone || (userProfile?.email?.toLowerCase() === email.toLowerCase() && userProfile?.phone !== '9848012345' && userProfile?.phone !== '9848098765' ? userProfile?.phone : '') || '';
+    const cleanDistrict = existingProfile?.district || (userProfile?.email?.toLowerCase() === email.toLowerCase() ? userProfile?.district : '') || '';
+    const cleanMandal = existingProfile?.mandal || (userProfile?.email?.toLowerCase() === email.toLowerCase() ? userProfile?.mandal : '') || '';
+    const cleanVillage = existingProfile?.village || (userProfile?.email?.toLowerCase() === email.toLowerCase() ? userProfile?.village : '') || '';
+    const cleanLocation = existingProfile?.location || [cleanVillage, cleanMandal, cleanDistrict].filter(Boolean).join(', ');
 
     const appUser: AppUser = {
       uid,
       email,
       displayName: name,
       photoURL: photo,
-      phoneNumber: existingPhone || null
+      phoneNumber: cleanPhone || null
     };
 
     setCurrentUser(appUser);
@@ -782,11 +806,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       displayName: name,
       name,
       email,
-      phone: existingPhone,
-      district: existingDistrict,
-      mandal: existingMandal,
-      village: existingVillage,
-      role: 'both',
+      phone: cleanPhone,
+      district: cleanDistrict,
+      mandal: cleanMandal,
+      village: cleanVillage,
+      location: cleanLocation,
+      role: existingProfile?.role || 'both',
       isAdmin: isAdminAccount,
       avatarUrl: photo,
       updatedAt: Date.now()
