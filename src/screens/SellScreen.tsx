@@ -75,7 +75,10 @@ export const SellScreen: React.FC = () => {
   // Pre-fill phone from user profile
   useEffect(() => {
     if (userProfile?.phone && !sellerPhone) {
-      setSellerPhone(userProfile.phone);
+      const p = userProfile.phone.trim();
+      if (p !== '9848012345' && p !== '9848098765') {
+        setSellerPhone(p);
+      }
     }
   }, [userProfile, sellerPhone]);
 
@@ -219,7 +222,7 @@ export const SellScreen: React.FC = () => {
     try {
       const sellerId = currentUser?.uid || userProfile?.id || 'user_vasu_1';
       const sellerName = currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri';
-      const sellerPhoneNum = sellerPhone.trim() || userProfile?.phone || '9848012345';
+      const sellerPhoneNum = sellerPhone.trim() || userProfile?.phone || '';
 
       const listingPayload = {
         title: title.trim(),

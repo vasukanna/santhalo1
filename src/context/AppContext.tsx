@@ -38,6 +38,7 @@ interface AppContextType {
   t: any;
   currentUser: AppUser | null;
   userProfile: UserProfile | null;
+  authLoading: boolean;
   updateProfile: (data: Partial<UserProfile>) => Promise<boolean>;
   saveUserProfile: (data: Partial<UserProfile>) => Promise<boolean>;
   loginWithGoogle: (presetEmail?: string, customDisplayName?: string) => Promise<void>;
@@ -212,6 +213,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [authLoading, setAuthLoading] = useState<boolean>(true);
   const [currentUser, setCurrentUser] = useState<AppUser | null>(() => {
     try {
       const saved = localStorage.getItem('santhalo_auth_user');
@@ -221,14 +223,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   });
   const DEFAULT_USER_PROFILE: UserProfile = {
-    id: 'user_guest',
-    displayName: 'రైతు మిత్రుడు',
-    name: 'రైతు మిత్రుడు',
+    id: '',
+    displayName: '',
+    name: '',
     email: '',
     phone: '',
-    district: 'Nellore (SPSR Nellore)',
-    mandal: 'Kavali',
-    village: 'Kavali Town',
+    district: '',
+    mandal: '',
+    village: '',
     role: 'both',
     isAdmin: false,
     createdAt: 1713225600000
@@ -241,14 +243,48 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const parsed = JSON.parse(saved);
         const emailToCheck = (parsed.email || '').toLowerCase().trim();
         const isAdminAccount = isEmailAdmin(emailToCheck);
+
+        // Clear sample phone numbers from saved data, but preserve real user entered phone
+        let cleanPhone = parsed.phone || '';
+        if (cleanPhone === '9848012345' || cleanPhone === '9848098765') {
+          cleanPhone = '';
+        }
+
+        // Clear sample default locations from saved data, but preserve real user entered location
+        let cleanDistrict = parsed.district || '';
+        let cleanMandal = parsed.mandal || '';
+        let cleanVillage = parsed.village || '';
+
+        const isSampleLocation =
+          cleanDistrict === 'Nellore (SPSR Nellore)' &&
+          (cleanMandal === 'Kavali' || cleanMandal === 'Sangam') &&
+          (cleanVillage === 'Kavali Town' || cleanVillage === 'Chennavarappadu' || !cleanVillage);
+
+        if (isSampleLocation) {
+          cleanDistrict = '';
+          cleanMandal = '';
+          cleanVillage = '';
+        }
+
         const sanitized: UserProfile = {
           ...DEFAULT_USER_PROFILE,
           ...parsed,
           email: parsed.email || '',
+          phone: cleanPhone,
+          district: cleanDistrict,
+          mandal: cleanMandal,
+          village: cleanVillage,
           isAdmin: isAdminAccount
         };
-        // Reset cached accounts in localStorage so only the two authorized emails keep admin
-        if (parsed.isAdmin !== isAdminAccount) {
+
+        // Persist cleaned profile back to storage
+        if (
+          parsed.isAdmin !== isAdminAccount ||
+          parsed.phone !== cleanPhone ||
+          parsed.district !== cleanDistrict ||
+          parsed.mandal !== cleanMandal ||
+          parsed.village !== cleanVillage
+        ) {
           localStorage.setItem('santhalo_user_profile', JSON.stringify(sanitized));
         }
         return sanitized;
@@ -342,7 +378,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     localStorage.setItem('santhalo_saved_listings', JSON.stringify(savedIds));
   }, [savedIds]);
 
-  // Listen to Auth State
+  // Listen to Auth State with browserLocalPersistence and session restoration
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -354,6 +390,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           phoneNumber: user.phoneNumber
         };
         setCurrentUser(appUser);
+        localStorage.setItem('santhalo_auth_user', JSON.stringify(appUser));
 
         const userEmail = (user.email || '').toLowerCase().trim();
         const isAdminAccount = isEmailAdmin(userEmail);
@@ -363,12 +400,32 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           const snap = await getDoc(userDocRef);
           if (snap.exists()) {
             const data = snap.data() as UserProfile;
+            let cleanPhone = data.phone || '';
+            if (cleanPhone === '9848012345' || cleanPhone === '9848098765') cleanPhone = '';
+
+            let cleanDistrict = data.district || '';
+            let cleanMandal = data.mandal || '';
+            let cleanVillage = data.village || '';
+            const isSampleLoc =
+              cleanDistrict === 'Nellore (SPSR Nellore)' &&
+              (cleanMandal === 'Kavali' || cleanMandal === 'Sangam') &&
+              (cleanVillage === 'Kavali Town' || cleanVillage === 'Chennavarappadu' || !cleanVillage);
+
+            if (isSampleLoc) {
+              cleanDistrict = '';
+              cleanMandal = '';
+              cleanVillage = '';
+            }
+
             const corrected: UserProfile = {
               ...data,
+              phone: cleanPhone,
+              district: cleanDistrict,
+              mandal: cleanMandal,
+              village: cleanVillage,
               email: user.email || data.email,
               isAdmin: isAdminAccount
             };
-            // Reset existing account in database if non-admin email previously had admin
             if (data.isAdmin && !isAdminAccount) {
               try {
                 await setDoc(userDocRef, { isAdmin: false }, { merge: true });
@@ -379,15 +436,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             setUserProfile(corrected);
             localStorage.setItem('santhalo_user_profile', JSON.stringify(corrected));
           } else {
+            // New user profile starts with empty phone and empty location
             const initialProfile: UserProfile = {
               id: user.uid,
               displayName: user.displayName || 'రైతు మిత్రుడు',
               name: user.displayName || 'రైతు మిత్రుడు',
               phone: user.phoneNumber || '',
               email: user.email || '',
-              district: 'Nellore (SPSR Nellore)',
-              mandal: 'Sangam',
-              village: 'Chennavarappadu',
+              district: '',
+              mandal: '',
+              village: '',
               avatarUrl: user.photoURL || undefined,
               role: 'both',
               isAdmin: isAdminAccount,
@@ -401,8 +459,55 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           handleFirestoreError(err, 'read');
         }
       } else {
-        setCurrentUser(null);
+        // If Firebase Auth has no active user in memory, restore from persistent storage if logged in
+        const savedAuth = localStorage.getItem('santhalo_auth_user');
+        if (savedAuth) {
+          try {
+            const parsed = JSON.parse(savedAuth);
+            if (parsed && parsed.email) {
+              setCurrentUser(parsed);
+              const email = (parsed.email || '').toLowerCase().trim();
+              const isAdminAccount = isEmailAdmin(email);
+              const savedProfile = localStorage.getItem('santhalo_user_profile');
+              if (savedProfile) {
+                const parsedProfile = JSON.parse(savedProfile);
+                let cleanPhone = parsedProfile.phone || '';
+                if (cleanPhone === '9848012345' || cleanPhone === '9848098765') cleanPhone = '';
+
+                let cleanDistrict = parsedProfile.district || '';
+                let cleanMandal = parsedProfile.mandal || '';
+                let cleanVillage = parsedProfile.village || '';
+                const isSampleLoc =
+                  cleanDistrict === 'Nellore (SPSR Nellore)' &&
+                  (cleanMandal === 'Kavali' || cleanMandal === 'Sangam') &&
+                  (cleanVillage === 'Kavali Town' || cleanVillage === 'Chennavarappadu' || !cleanVillage);
+
+                if (isSampleLoc) {
+                  cleanDistrict = '';
+                  cleanMandal = '';
+                  cleanVillage = '';
+                }
+
+                setUserProfile({
+                  ...parsedProfile,
+                  phone: cleanPhone,
+                  district: cleanDistrict,
+                  mandal: cleanMandal,
+                  village: cleanVillage,
+                  isAdmin: isAdminAccount
+                });
+              }
+            } else {
+              setCurrentUser(null);
+            }
+          } catch {
+            setCurrentUser(null);
+          }
+        } else {
+          setCurrentUser(null);
+        }
       }
+      setAuthLoading(false);
     });
 
     return () => unsubscribe();
@@ -458,9 +563,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         name: nameVal,
         phone: data.phone !== undefined ? data.phone : (userProfile?.phone || ''),
         email: emailVal,
-        district: data.district || userProfile?.district || 'Nellore (SPSR Nellore)',
-        mandal: data.mandal || userProfile?.mandal || 'Kavali',
-        village: data.village !== undefined ? data.village : (userProfile?.village || 'Kavali Town'),
+        district: data.district !== undefined ? data.district : (userProfile?.district || ''),
+        mandal: data.mandal !== undefined ? data.mandal : (userProfile?.mandal || ''),
+        village: data.village !== undefined ? data.village : (userProfile?.village || ''),
         role: data.role || userProfile?.role || 'both',
         isAdmin: isAdminAccount,
         avatarUrl: data.avatarUrl || userProfile?.avatarUrl,
@@ -513,8 +618,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         videoUrl: data.videoUrl || data.video,
         sellerId: currentUser?.uid || userProfile?.id || 'user_vasu_1',
         sellerName: currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri',
-        sellerPhone: data.sellerPhone || userProfile?.phone || '9848012345',
-        sellerLocation: `${data.village || userProfile?.village || 'Kavali'}, ${data.mandal || userProfile?.mandal || 'Nellore'}`,
+        sellerPhone: data.sellerPhone || userProfile?.phone || '',
+        sellerLocation: data.sellerLocation || (
+          (data.village || userProfile?.village || '')
+            ? `${data.village || userProfile?.village || ''}, ${data.mandal || userProfile?.mandal || ''}`
+            : (data.mandal || userProfile?.mandal || '')
+        ),
         createdAt: new Date().toISOString(),
         status: 'active',
         featured: false,
@@ -576,15 +685,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         localStorage.setItem('santhalo_auth_user', JSON.stringify(appUser));
 
         const userIsAdmin = isEmailAdmin(u.email);
+        const existingPhone = (userProfile?.phone === '9848012345' || userProfile?.phone === '9848098765') ? '' : (userProfile?.phone || '');
+        const isSampleLoc =
+          userProfile?.district === 'Nellore (SPSR Nellore)' &&
+          (userProfile?.mandal === 'Kavali' || userProfile?.mandal === 'Sangam');
+        const existingDistrict = isSampleLoc ? '' : (userProfile?.district || '');
+        const existingMandal = isSampleLoc ? '' : (userProfile?.mandal || '');
+        const existingVillage = (userProfile?.village === 'Kavali Town' || userProfile?.village === 'Chennavarappadu') ? '' : (userProfile?.village || '');
+
         const updatedProfile: UserProfile = {
           id: u.uid,
           displayName: u.displayName || 'Farmer Member',
           name: u.displayName || 'Farmer Member',
-          phone: u.phoneNumber || userProfile?.phone || '9848012345',
+          phone: u.phoneNumber || existingPhone,
           email: u.email || '',
-          district: userProfile?.district || 'Nellore (SPSR Nellore)',
-          mandal: userProfile?.mandal || 'Sangam',
-          village: userProfile?.village || 'Chennavarappadu',
+          district: existingDistrict,
+          mandal: existingMandal,
+          village: existingVillage,
           avatarUrl: u.photoURL || undefined,
           role: 'both',
           isAdmin: userIsAdmin,
@@ -630,26 +747,31 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     let name = customDisplayName || email.split('@')[0];
     let uid = `google_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
     let photo = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80';
-    let phone = '9848012345';
 
     if (email.toLowerCase() === 'vasu.kannaluri@gmail.com') {
       name = 'Vasu Kannaluri';
       uid = 'user_vasu_1';
-      phone = '9848012345';
       photo = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80';
     } else if (email.toLowerCase() === 'naren.papanaboina@gmail.com') {
       name = 'Naren Papanaboina';
       uid = 'user_naren_admin';
-      phone = '9848098765';
       photo = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80';
     }
+
+    const existingPhone = (userProfile?.phone === '9848012345' || userProfile?.phone === '9848098765') ? '' : (userProfile?.phone || '');
+    const isSampleLoc =
+      userProfile?.district === 'Nellore (SPSR Nellore)' &&
+      (userProfile?.mandal === 'Kavali' || userProfile?.mandal === 'Sangam');
+    const existingDistrict = isSampleLoc ? '' : (userProfile?.district || '');
+    const existingMandal = isSampleLoc ? '' : (userProfile?.mandal || '');
+    const existingVillage = (userProfile?.village === 'Kavali Town' || userProfile?.village === 'Chennavarappadu') ? '' : (userProfile?.village || '');
 
     const appUser: AppUser = {
       uid,
       email,
       displayName: name,
       photoURL: photo,
-      phoneNumber: phone
+      phoneNumber: existingPhone || null
     };
 
     setCurrentUser(appUser);
@@ -660,10 +782,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       displayName: name,
       name,
       email,
-      phone,
-      district: 'Nellore (SPSR Nellore)',
-      mandal: 'Kavali',
-      village: 'Kavali Town',
+      phone: existingPhone,
+      district: existingDistrict,
+      mandal: existingMandal,
+      village: existingVillage,
       role: 'both',
       isAdmin: isAdminAccount,
       avatarUrl: photo,
@@ -697,7 +819,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       console.error('Sign out error:', err);
     } finally {
       setCurrentUser(null);
+      setUserProfile(null);
       localStorage.removeItem('santhalo_auth_user');
+      localStorage.removeItem('santhalo_user_profile');
       showToast(lang === 'te' ? 'లాగ్ అవుట్ అయ్యారు.' : 'Signed out.', 'info');
     }
   };
@@ -959,6 +1083,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         t,
         currentUser,
         userProfile,
+        authLoading,
         updateProfile,
         saveUserProfile,
         loginWithGoogle,

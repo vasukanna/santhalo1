@@ -44,6 +44,7 @@ export const ProfileScreen: React.FC = () => {
     setLang,
     userProfile,
     currentUser,
+    authLoading,
     loginWithGoogle,
     logout,
     saveUserProfile,
@@ -72,13 +73,30 @@ export const ProfileScreen: React.FC = () => {
   // Admin preview mode (toggle to see what a regular farmer sees)
   const [previewAsUser, setPreviewAsUser] = useState<boolean>(false);
 
-  // Form State
-  const [displayName, setDisplayName] = useState<string>(userProfile?.displayName || 'vasu kannaluri');
-  const [email, setEmail] = useState<string>(userProfile?.email || 'vasu.kannaluri@gmail.com');
-  const [phone, setPhone] = useState<string>(userProfile?.phone || '9848012345');
-  const [district, setDistrict] = useState<string>(userProfile?.district || 'Nellore (SPSR Nellore)');
-  const [mandal, setMandal] = useState<string>(userProfile?.mandal || 'Kavali');
-  const [village, setVillage] = useState<string>(userProfile?.village || 'Kavali Town');
+  // Form State - Starts empty with placeholders for new users, preserving real user values
+  const [displayName, setDisplayName] = useState<string>(() => userProfile?.displayName || currentUser?.displayName || '');
+  const [email, setEmail] = useState<string>(() => userProfile?.email || currentUser?.email || '');
+  const [phone, setPhone] = useState<string>(() => {
+    const p = userProfile?.phone || '';
+    return (p === '9848012345' || p === '9848098765') ? '' : p;
+  });
+  const [district, setDistrict] = useState<string>(() => {
+    const d = userProfile?.district || '';
+    const m = userProfile?.mandal || '';
+    if (d === 'Nellore (SPSR Nellore)' && (m === 'Kavali' || m === 'Sangam')) return '';
+    return d;
+  });
+  const [mandal, setMandal] = useState<string>(() => {
+    const d = userProfile?.district || '';
+    const m = userProfile?.mandal || '';
+    if (d === 'Nellore (SPSR Nellore)' && (m === 'Kavali' || m === 'Sangam')) return '';
+    return m;
+  });
+  const [village, setVillage] = useState<string>(() => {
+    const v = userProfile?.village || '';
+    if (v === 'Kavali Town' || v === 'Chennavarappadu') return '';
+    return v;
+  });
   const [role, setRole] = useState<'seller' | 'buyer' | 'both'>(userProfile?.role || 'both');
 
   const [saving, setSaving] = useState<boolean>(false);
@@ -113,22 +131,30 @@ export const ProfileScreen: React.FC = () => {
     if (userProfile) {
       if (userProfile.displayName) setDisplayName(userProfile.displayName);
       if (userProfile.email) setEmail(userProfile.email);
-      if (userProfile.phone) setPhone(userProfile.phone);
-      if (userProfile.district) setDistrict(userProfile.district);
-      if (userProfile.mandal) setMandal(userProfile.mandal);
-      if (userProfile.village) setVillage(userProfile.village);
+      const cleanPhone = (userProfile.phone === '9848012345' || userProfile.phone === '9848098765') ? '' : (userProfile.phone || '');
+      setPhone(cleanPhone);
+
+      const isSampleLoc =
+        userProfile.district === 'Nellore (SPSR Nellore)' &&
+        (userProfile.mandal === 'Kavali' || userProfile.mandal === 'Sangam');
+      const cleanDistrict = isSampleLoc ? '' : (userProfile.district || '');
+      const cleanMandal = isSampleLoc ? '' : (userProfile.mandal || '');
+      const cleanVillage = (userProfile.village === 'Kavali Town' || userProfile.village === 'Chennavarappadu') ? '' : (userProfile.village || '');
+      setDistrict(cleanDistrict);
+      setMandal(cleanMandal);
+      setVillage(cleanVillage);
       if (userProfile.role) setRole(userProfile.role);
     }
   }, [userProfile]);
 
   // Mandals for selected district
   const mandals = useMemo(() => {
-    return getMandalsForDistrict(district);
+    return district ? getMandalsForDistrict(district) : [];
   }, [district]);
 
   // Villages for selected mandal
   const villages = useMemo(() => {
-    return getVillagesForMandal(district, mandal);
+    return (district && mandal) ? getVillagesForMandal(district, mandal) : [];
   }, [district, mandal]);
 
   // User's own listings
@@ -242,6 +268,15 @@ export const ProfileScreen: React.FC = () => {
 
   const avatarInitial = displayName ? displayName.trim().charAt(0).toUpperCase() : 'V';
   const showAdminFeatures = isAdmin && !previewAsUser;
+
+  // Auth state restoration loading spinner (prevents login screen flash on refresh)
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-stone-50 pb-28 pt-20 px-4 flex flex-col items-center justify-center">
+        <div className="w-8 h-8 border-3 border-[#F26A1B] border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   // If user is not logged in, show "Join SanthaKart" screen (Matching user's attachment)
   if (!currentUser) {
@@ -362,14 +397,24 @@ export const ProfileScreen: React.FC = () => {
 
               <div>
                 <h1 className="text-base sm:text-lg font-black text-stone-900 leading-tight">
-                  {displayName || 'vasu kannaluri'}
+                  {displayName || currentUser?.displayName || (lang === 'te' ? 'రైతు మిత్రుడు' : 'Farmer Member')}
                 </h1>
-                <p className="text-xs text-stone-500 font-medium mt-0.5">
-                  {email || 'vasu.kannaluri@gmail.com'}
+                {Boolean(email || currentUser?.email) && (
+                  <p className="text-xs text-stone-500 font-medium mt-0.5">
+                    {email || currentUser?.email}
+                  </p>
+                )}
+                <p className="text-xs font-medium flex items-center gap-1 mt-1 text-stone-600">
+                  <Phone className="w-3.5 h-3.5 text-stone-400 shrink-0" />
+                  <span className={phone ? 'text-stone-700' : 'text-stone-400 italic'}>
+                    {phone || 'Add your phone number'}
+                  </span>
                 </p>
-                <p className="text-xs text-stone-500 font-medium flex items-center gap-1 mt-1 text-stone-600">
+                <p className="text-xs font-medium flex items-center gap-1 mt-1 text-stone-600">
                   <MapPin className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  <span>{mandal ? `${mandal}, ${district}` : district}</span>
+                  <span className={(district || mandal) ? 'text-stone-700' : 'text-stone-400 italic'}>
+                    {(district || mandal) ? (mandal ? `${mandal}, ${district}` : district) : 'Add your location'}
+                  </span>
                 </p>
               </div>
             </div>
@@ -552,7 +597,7 @@ export const ProfileScreen: React.FC = () => {
                   <button
                     onClick={() => {
                       setNewSellerName(displayName || 'Admin');
-                      setNewSellerPhone(phone || '9848012345');
+                      setNewSellerPhone(phone || '');
                       setShowQuickAddModal(true);
                     }}
                     className="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-2xs cursor-pointer transition-colors"
@@ -892,16 +937,15 @@ export const ProfileScreen: React.FC = () => {
 
               <div>
                 <label className="font-bold text-stone-800 block mb-1">
-                  Contact Phone Number *
+                  Contact Phone Number
                 </label>
                 <div className="relative">
                   <Phone className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="tel"
-                    required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="9848012345"
+                    placeholder="Add your phone number"
                     maxLength={10}
                     className="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500 focus:bg-white transition-all"
                   />
@@ -910,21 +954,19 @@ export const ProfileScreen: React.FC = () => {
 
               <div>
                 <label className="font-bold text-stone-800 block mb-1">
-                  District *
+                  District
                 </label>
                 <select
                   value={district}
                   onChange={(e) => {
                     const nextD = e.target.value;
                     setDistrict(nextD);
-                    const mList = getMandalsForDistrict(nextD);
-                    if (mList && mList.length > 0) {
-                      setMandal(mList[0].name);
-                      setVillage('');
-                    }
+                    setMandal('');
+                    setVillage('');
                   }}
                   className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500"
                 >
+                  <option value="">-- Add your location --</option>
                   {AP_DISTRICTS.map((d) => (
                     <option key={d.name} value={d.name}>
                       {d.name} {d.te ? `(${d.te})` : ''}
@@ -935,7 +977,7 @@ export const ProfileScreen: React.FC = () => {
 
               <div>
                 <label className="font-bold text-stone-800 block mb-1">
-                  Mandal *
+                  Mandal
                 </label>
                 <select
                   value={mandal}
@@ -943,8 +985,10 @@ export const ProfileScreen: React.FC = () => {
                     setMandal(e.target.value);
                     setVillage('');
                   }}
-                  className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500"
+                  disabled={!district}
+                  className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500 disabled:opacity-50"
                 >
+                  <option value="">{district ? '-- Select Mandal --' : '-- Add your location --'}</option>
                   {mandals.map((m) => (
                     <option key={m.name} value={m.name}>
                       {m.name} {m.te ? `(${m.te})` : ''}
@@ -975,7 +1019,7 @@ export const ProfileScreen: React.FC = () => {
                   type="text"
                   value={village}
                   onChange={(e) => setVillage(e.target.value)}
-                  placeholder="Kavali Town or village name"
+                  placeholder="Add your location"
                   className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500"
                 />
               </div>
@@ -1269,7 +1313,7 @@ export const ProfileScreen: React.FC = () => {
                     mandal: newMandal,
                     village: 'Kavali Town',
                     sellerName: newSellerName.trim() || displayName || 'Admin Seller',
-                    sellerPhone: newSellerPhone.trim() || phone || '9848012345',
+                    sellerPhone: newSellerPhone.trim() || phone || '',
                     images: [categoryImageMap[newCategory] || '/assets/bpt_5204_rice.jpg']
                   });
                   if (res && res.success) {
@@ -1378,7 +1422,7 @@ export const ProfileScreen: React.FC = () => {
                     type="tel"
                     value={newSellerPhone}
                     onChange={(e) => setNewSellerPhone(e.target.value)}
-                    placeholder="9848012345"
+                    placeholder="Add your phone number"
                     className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium"
                   />
                 </div>
