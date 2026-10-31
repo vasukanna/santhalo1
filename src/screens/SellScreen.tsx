@@ -232,8 +232,8 @@ export const SellScreen: React.FC = () => {
 
     setSubmitting(true);
     try {
-      const sellerId = currentUser?.uid || userProfile?.id || 'user_vasu_1';
-      const sellerName = currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri';
+      const sellerId = currentUser?.uid || userProfile?.id || 'farmer_user';
+      const sellerName = currentUser?.displayName || userProfile?.displayName || userProfile?.name || (lang === 'te' ? 'రైతు మిత్రుడు' : 'Farmer Member');
 
       const listingPayload = {
         title: title.trim(),

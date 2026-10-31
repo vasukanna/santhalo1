@@ -43,6 +43,7 @@ export const PWAInstallBanner: React.FC = () => {
     // 4. Standard Chromium beforeinstallprompt listener
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
+      (window as any).__pwaPrompt = e;
       setDeferredPrompt(e);
       setShowBanner(true);
     };
@@ -50,6 +51,7 @@ export const PWAInstallBanner: React.FC = () => {
     const handleAppInstalled = () => {
       setShowBanner(false);
       setDeferredPrompt(null);
+      (window as any).__pwaPrompt = null;
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);

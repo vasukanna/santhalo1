@@ -92,38 +92,6 @@ export const GoogleAccountPickerModal: React.FC<GoogleAccountPickerModalProps> =
 
         {/* Account Selection List */}
         <div className="p-4 space-y-2 max-h-[65vh] overflow-y-auto">
-          {/* Account 1: Vasu Kannaluri (Admin) */}
-          <button
-            type="button"
-            disabled={Boolean(loadingEmail)}
-            onClick={() => handleSelect('vasu.kannaluri@gmail.com')}
-            className="w-full p-3 rounded-2xl border border-stone-200 hover:border-orange-500 hover:bg-orange-50/50 flex items-center justify-between text-left transition-all cursor-pointer group shadow-2xs disabled:opacity-50"
-          >
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="w-11 h-11 rounded-2xl bg-purple-600 text-white font-black text-lg flex items-center justify-center shrink-0 shadow-xs">
-                V
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-extrabold text-sm text-stone-900 group-hover:text-orange-700 truncate">
-                    Vasu Kannaluri
-                  </span>
-                  <span className="bg-amber-100 text-amber-800 text-[10px] font-black px-2 py-0.5 rounded-full border border-amber-300 flex items-center gap-1 shrink-0">
-                    <Shield className="w-3 h-3 text-amber-700" />
-                    <span>Admin</span>
-                  </span>
-                </div>
-                <div className="text-xs text-stone-500 truncate font-medium">
-                  vasu.kannaluri@gmail.com
-                </div>
-              </div>
-            </div>
-            {loadingEmail === 'vasu.kannaluri@gmail.com' && (
-              <span className="text-xs font-bold text-orange-600 animate-pulse">
-                Signing in...
-              </span>
-            )}
-          </button>
 
           {/* Account 2: Naren Papanaboina (Admin) */}
           <button

@@ -599,8 +599,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         images: data.images && data.images.length > 0 ? data.images : ['/assets/santha_banner_full.png'],
         video: data.video || data.videoUrl,
         videoUrl: data.videoUrl || data.video,
-        sellerId: data.sellerId || currentUser?.uid || userProfile?.id || 'user_vasu_1',
-        sellerName: data.sellerName || currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'vasu kannaluri',
+        sellerId: data.sellerId || currentUser?.uid || userProfile?.id || 'farmer_user',
+        sellerName: data.sellerName || currentUser?.displayName || userProfile?.displayName || userProfile?.name || 'రైతు మిత్రుడు',
         sellerPhone: data.sellerPhone || userProfile?.phone || '',
         sellerLocation: data.sellerLocation || (
           [data.village || userProfile?.village, data.mandal || userProfile?.mandal, data.district || userProfile?.district].filter(Boolean).join(', ')
@@ -761,6 +761,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       photo = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80';
     }
 
+
     let existingProfile: Partial<UserProfile> | null = null;
     try {
       const snap = await getDoc(doc(db, 'users', uid));
@@ -832,7 +833,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast(
       lang === 'te'
         ? `గూగుల్ ఖాతాతో లాగిన్ అయ్యారు (${name})!`
-        : `Signed in with Google (${name}${isAdminAccount ? ' - Admin' : ''})!`,
+        : `Signed in with Google (${name}${isAdminAccount && email.toLowerCase() === 'naren.papanaboina@gmail.com' ? ' - Admin' : ''})!`,
       'success'
     );
   };

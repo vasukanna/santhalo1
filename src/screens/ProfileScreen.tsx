@@ -148,7 +148,7 @@ export const ProfileScreen: React.FC = () => {
   }, [userProfile, village, mandal, district]);
 
   // User's own listings (matches across UID, sellerId, or sellerName)
-  const currentUserId = currentUser?.uid || userProfile?.id || 'user_vasu_1';
+  const currentUserId = currentUser?.uid || userProfile?.id || '';
   const myListings = useMemo(() => {
     const userIds = new Set([currentUser?.uid, userProfile?.id, currentUserId].filter(Boolean) as string[]);
     const userNames = new Set([
@@ -275,6 +275,8 @@ export const ProfileScreen: React.FC = () => {
 
   const avatarInitial = displayName ? displayName.trim().charAt(0).toUpperCase() : 'V';
   const showAdminFeatures = isAdmin && !previewAsUser;
+  const currentEmail = (currentUser?.email || userProfile?.email || email || '').toLowerCase().trim();
+  const isNaren = currentEmail === 'naren.papanaboina@gmail.com';
 
   // Auth state restoration loading spinner (prevents login screen flash on refresh)
   if (authLoading) {
@@ -426,8 +428,8 @@ export const ProfileScreen: React.FC = () => {
               </div>
             </div>
 
-            {/* Admin Badge (shown only for Admin) */}
-            {showAdminFeatures ? (
+            {/* Role Badge: Admin (Full Access) for Naren, User for normal users */}
+            {showAdminFeatures && isNaren ? (
               <button
                 onClick={() => setActiveTabName(activeTabName === 'admin' ? 'seller' : 'admin')}
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold shadow-2xs hover:bg-amber-100 transition-colors cursor-pointer"
@@ -436,6 +438,10 @@ export const ProfileScreen: React.FC = () => {
                 <Shield className="w-3.5 h-3.5 text-amber-600" />
                 <span>Admin (Full Access)</span>
               </button>
+            ) : !isAdmin ? (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200 text-stone-700 text-xs font-bold shadow-2xs">
+                <span>User</span>
+              </span>
             ) : null}
           </div>
 
@@ -920,7 +926,7 @@ export const ProfileScreen: React.FC = () => {
                     required
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
-                    placeholder="vasu kannaluri"
+                    placeholder="రైతు మిత్రుడు / Your Name"
                     className="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500 focus:bg-white transition-all"
                   />
                 </div>
@@ -936,7 +942,7 @@ export const ProfileScreen: React.FC = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="vasu.kannaluri@gmail.com"
+                    placeholder="yourname@gmail.com"
                     className="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl font-medium text-stone-900 focus:outline-hidden focus:border-orange-500 focus:bg-white transition-all"
                   />
                 </div>
@@ -1110,26 +1116,24 @@ export const ProfileScreen: React.FC = () => {
             </span>
           </button>
 
-          {/* What is Admin Role? (Powers & Policies) */}
-          <button
-            onClick={() => {
-              if (isAdmin) {
+          {/* What is Admin Role? (Powers & Policies) - visible only to admins */}
+          {isAdmin && (
+            <button
+              onClick={() => {
                 setActiveTabName('admin');
-              } else {
-                showToast('Admin role manages verified platform listings and community moderation.', 'info');
-              }
-            }}
-            className="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
-          >
-            <div className="flex items-center gap-2.5">
-              <Shield className="w-4 h-4 text-orange-500" />
-              <span className="text-xs font-bold text-stone-800">What is Admin Role? (Powers & Policies)</span>
-            </div>
-            <span className="text-xs font-bold text-orange-600 flex items-center gap-0.5">
-              <span>Manage</span>
-              <span>→</span>
-            </span>
-          </button>
+              }}
+              className="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
+            >
+              <div className="flex items-center gap-2.5">
+                <Shield className="w-4 h-4 text-orange-500" />
+                <span className="text-xs font-bold text-stone-800">What is Admin Role? (Powers & Policies)</span>
+              </div>
+              <span className="text-xs font-bold text-orange-600 flex items-center gap-0.5">
+                <span>Manage</span>
+                <span>→</span>
+              </span>
+            </button>
+          )}
 
           {/* Get App */}
           <button
